@@ -1,0 +1,268 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+.nav-ul {
+  display: flex;
+  width: 530px;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #045690 !important;
+  font-weight: 500;
+}
+
+.header-action {
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
+  position: absolute;
+  right: 20px;
+  align-items: center;
+}
+
+.header-button {
+  width: 137px;
+  height: 46px;
+  background-color: #045690;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  border: none;
+  font-family: Noto Sans;
+  font-size: medium;
+}
+
+.home-container {
+  background-image: url("/src/assets/Hero_bgcolor_linear.png");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 1008.32px;
+  position: relative;
+}
+
+.flags-container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+
+.app-icons {
+  width: fit-content;
+  height: fit-content;
+}
+
+.whats-app {
+  position: fixed;
+  top: 85vh;
+  left: 100px;
+}
+
+.scroll-app {
+  position: fixed;
+  left: 48vw;
+  top: 85vh;
+}
+
+.banner {
+  width: 825px;
+  height: 350px;
+  margin-inline: auto;
+  text-align: center;
+  padding-top: 110px;
+}
+
+.banner-head {
+  font-family: Montserrat;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 108px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.banner-text {
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: aliceblue;
+}
+
+.outline-right {
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+}
+
+.outline-left {
+  position: absolute;
+  bottom: -91px;
+  left: 0px;
+}
+
+.timeline-container {
+  background-image: url("/src//assets/Asset_Bg_Globe\ \(1\).png");
+
+  height: 752px;
+
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+  border: solid white 2px;
+  position: relative;
+  top: 260px;
+  text-align: center;
+}
+
+.timeline-head {
+  font-family: Montserrat;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #505050;
+  width: 60%;
+  margin-inline: auto;
+  padding: 150px 150px 0 150px;
+}
+
+.time-sub {
+  color: #00467f;
+  text-transform: uppercase;
+  font-size: larger;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.time-card-container {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin-inline: auto;
+  padding: 50px;
+  align-items: center;
+}
+
+.number-heading {
+  font-family: Noto Sans;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.time-card {
+  margin-inline: 40px;
+  background-color: rgba(216, 216, 216, 0.279);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.text-heading {
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #505050;
+  margin: 10px 15px;
+}
+
+.learn-more-btn {
+  width: (283px);
+  height: (60px);
+  top: 2134.51px;
+  left: 584.68px;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px;
+  gap: 10px;
+  color: #004b6a;
+  font-weight: 600;
+  margin-top: 120px;
+}
+
+.journey {
+  background: #25538d;
+  height: 750px;
+  position: relative;
+  top: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.journey-heading {
+  font-family: Noto Sans;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 100px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.journey-sub {
+  margin: 20px;
+  color: #e7e7e7;
+}
+
+.journey-steps {
+  width: 1220.28px;
+  height: 326.06px;
+  background-color: #ffffff0d;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-in-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-family: Noto Sans;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: 0em;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  color: #25538d;
+}
+
+.tile {
+  z-index: 100000;
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: -100px;
+  color: white;
+  font: 500;
+}
