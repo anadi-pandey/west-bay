@@ -38,7 +38,6 @@
 }
 
 .header-button {
-  width: 137px;
   height: 46px;
   background-color: #045690;
   color: white;
@@ -47,6 +46,7 @@
   border: none;
   font-family: Noto Sans;
   font-size: medium;
+  margin-inline: 20px;
 }
 
 .home-container {
@@ -97,6 +97,9 @@
   letter-spacing: 0em;
   text-align: center;
   color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .banner-text {
@@ -107,6 +110,8 @@
   letter-spacing: 0em;
   text-align: center;
   color: aliceblue;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .outline-right {
@@ -133,7 +138,7 @@
   position: relative;
   border: solid white 2px;
   position: relative;
-  top: 260px;
+  top: -150px;
   text-align: center;
 }
 
@@ -156,6 +161,8 @@
   font-size: larger;
   font-weight: 700;
   margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .time-card-container {
@@ -173,6 +180,8 @@
   font-weight: 700;
   letter-spacing: 0em;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .time-card {
@@ -190,6 +199,8 @@
   text-align: center;
   color: #505050;
   margin: 10px 15px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .learn-more-btn {
@@ -204,13 +215,15 @@
   color: #004b6a;
   font-weight: 600;
   margin-top: 120px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .journey {
   background: #25538d;
   height: 750px;
   position: relative;
-  top: 400px;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -225,11 +238,15 @@
   letter-spacing: 0em;
   text-align: center;
   color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .journey-sub {
   margin: 20px;
   color: #e7e7e7;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .journey-steps {
@@ -265,4 +282,531 @@
   top: -100px;
   color: white;
   font: 500;
+}
+
+.services {
+  position: relative;
+  top: 0;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.service-title {
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: left;
+  color: #505050;
+  width: fit-content;
+  margin: 10px auto;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+.services-text {
+  font-family: Noto Sans;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #045690;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+.services-sub-text {
+  font-family: Noto Sans;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 45px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #505050;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+.services-plan-container {
+  display: flex;
+}
+
+.plan-container {
+  background-position: center;
+  background-size: cover;
+  height: 875px;
+  position: relative;
+}
+
+.plan-heading {
+  font-family: Noto Sans;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 100px;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: white;
+  padding: 50px;
+  position: relative;
+  top: 180px;
+  width: 80%;
+}
+
+.plan-sub-heading {
+  font-family: Noto Sans;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #e7e7e7;
+  padding: 50px;
+  position: relative;
+  top: 120px;
+}
+
+.plan-btn {
+  width: Fixed (275px);
+  height: Fixed (60px);
+  border-radius: 4px;
+  color: #004b6a;
+  border: none;
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+}
+
+.plan-logo {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+}
+
+.plan-heading {
+  text-transform: uppercase;
+}
+
+.plan-stroke {
+  position: absolute;
+  top: 100px;
+  right: 0;
+}
+
+.visas {
+  position: relative;
+  top: -50px;
+  padding: 50px;
+  background: #00467f0d;
+}
+
+.service-title {
+  margin-bottom: 20px;
+}
+
+.services-text {
+  margin: 20px auto;
+}
+
+.visa-name {
+  position: absolute;
+  font-family: Noto Sans;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  bottom: 20%;
+  left: 30px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.visa-card {
+  position: relative;
+  height: 426px;
+  width: 417px;
+  background-position: center;
+  background-size: cover;
+  margin: 20px auto;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.visa-more {
+  font-family: Noto Sans;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  bottom: 8%;
+  text-decoration: underline;
+  color: white;
+  left: 30px;
+}
+
+.visas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.client {
+  background-color: white;
+}
+
+.client-card {
+  width: 400px;
+  height: 200px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 20px auto;
+}
+
+.upper-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.twitter-container {
+  position: relative;
+}
+
+.twitter {
+  position: absolute;
+  bottom: 10px;
+  right: 8px;
+}
+
+.client-container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer {
+  background-color: #00467f;
+  display: flex;
+  position: relative;
+  top: 100px;
+  width: 100vw;
+  padding: 40px;
+  justify-content: space-around;
+  color: white;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+.footerNew {
+  background-color: #00467f;
+  display: flex;
+  position: relative;
+  width: 100vw;
+  padding: 40px;
+  justify-content: space-around;
+  color: white;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+/* zxOOM */
+
+header {
+  position: relative;
+}
+.title {
+  text-align: center;
+}
+.content {
+  margin: 0 auto;
+  max-width: 90%;
+  width: 720px;
+  height: 100%;
+}
+main {
+  padding: 1% 0;
+  position: relative;
+  background: white;
+  box-shadow: 0px -10px 60px rgba(0, 0, 0, 0.25);
+}
+button {
+  border: 3px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: all ease-in-out 0.3s;
+}
+button:hover {
+  background: #fff;
+  color: #000;
+  opacity: 0.7;
+}
+.zoom {
+  overflow: hidden;
+  padding-bottom: 60%;
+  background-image: url("./assets/globe.png");
+  background-size: 100% 100%;
+}
+.title {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+.title h1 {
+  text-align: center;
+  color: #fff;
+}
+@media (max-width: 1024px) {
+  .content {
+    text-align: justify;
+  }
+  .zoom {
+    overflow: hidden;
+    padding-bottom: 60%;
+  }
+}
+
+.container {
+  height: 2000px; /* Just for demonstration, to create enough scrollable area */
+}
+
+.target-div {
+  opacity: 0; /* Initially hide the target div */
+  transition: opacity 0.5s ease; /* Add a transition for smooth effect */
+}
+
+.visible {
+  opacity: 1;
+}
+
+.global_presence {
+  text-align: center;
+  margin-top: 290px;
+}
+
+.global-sub {
+  color: #505050;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+.global-main {
+  color: #045690;
+  font-size: 50px;
+  font-family: Noto Sans;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.global-text {
+  font-size: 20px;
+  margin-inline: auto;
+  margin: 40px auto;
+  font-family: Noto Sans;
+  color: #505050;
+  width: 900px;
+}
+
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 100px;
+  margin-bottom: 70px;
+}
+
+.section-heading {
+  color: #080808;
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: Noto Sans;
+  margin: 20px auto;
+}
+
+.section-content {
+  font-size: 20px;
+  color: #4b4b4b;
+}
+
+.article-container {
+  margin: 40px auto;
+  margin-inline: 100px;
+}
+
+.article-heading {
+  color: #25538d;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 30px auto;
+  font-family: Noto Sans;
+  letter-spacing: 0.9px;
+}
+
+.article-content {
+  font-size: 20px;
+  color: #000;
+  line-height: 52px;
+}
+
+.citizen-planning {
+  background-color: #25538d;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 50px 0 50px 0;
+}
+
+.citizen-card {
+  width: 33%;
+  padding: 50px;
+  font-family: Noto Sans;
+}
+.citizen-heading {
+  color: #fff;
+  line-height: 42px;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: Noto Sans;
+
+  height: 100px;
+}
+
+.citizen-content {
+  font-size: 20px;
+  line-height: 34px;
+  color: white;
+  padding: 0 20px 0 0;
+  font-family: Noto Sans;
+}
+
+.app-container-main {
+  background-color: white;
+  padding: 0;
+}
+.app-container-outlet {
+  padding: 0;
+}
+
+.app-container {
+  padding: 0;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contact-card {
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  margin: 20px;
+  height: 200px;
+  box-sizing: border-box;
+}
+.contact-card img {
+  margin: 10px;
+}
+
+.country-name {
+  color: #000;
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+.contact-content {
+  color: #505050;
+  width: 50%;
+  margin-inline: auto;
+  line-height: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+.program-card {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+}
+
+.program-graphics {
+  text-align: left;
+}
+.program-graphics img {
+  margin: 20px 0;
+}
+
+.program-content {
+  color: #505050;
+  line-height: 25px;
+  width: 80%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.get-in-touch {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 10px;
+}
+
+.service-name {
+  color: #000;
+  font-size: 25px;
+  font-family: Noto Sans;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.service-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px;
+  margin-top: 15px;
+  width: 80%;
+  margin-inline: auto;
+  font-family: Noto Sans;
+  font-size: 16px;
+  color: #3c3c3c;
+  padding-bottom: 20px;
+}
+
+.services-section {
+  border-bottom: solid 1px #d7d7d7;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 80%;
+  margin-inline: auto;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+
+.services-section:hover {
+  background-color: rgba(4, 86, 144, 5%);
+  cursor: pointer;
 }
