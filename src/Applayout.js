@@ -4,14 +4,18 @@ import Header from "./components/Header";
 import WhatsApp from "./icons/WhatsApp";
 import Scroll from "./icons/Scroll";
 import "./App.css";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AppContext } from "./AppContext";
 
 // Functions:
 const AppLayout = () => {
   const { showHeader, updateValue } = useContext(AppContext);
+  const divRef = useRef();
+  const scrollBack = () => {
+    divRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <div className="app-container">
+    <div className="app-container" ref={divRef}>
       <main className="app-container-main">
         <div className="app-container-right">
           {showHeader && <Header />}
@@ -25,6 +29,9 @@ const AppLayout = () => {
       </div>
       <div className="app-icons scroll-app">
         <Scroll />
+      </div>
+      <div className="app-icons scroll-back" onClick={() => scrollBack()}>
+        Back to Top
       </div>
     </div>
   );

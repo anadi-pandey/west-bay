@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "../App.css";
+import rect from "../assets/Rectangle 150.png";
 import Flag from "../components/Flag";
 import OutlineOne from "../icons/HeroOutlineOne";
 import OutlineTwo from "../icons/HeroOutlineTwo";
@@ -23,13 +24,15 @@ import law from "../assets/partners/Siegel.png";
 import law2 from "../assets/partners/Le_TempsBZ_TAKCH2022.png";
 import iso from "../assets/partners/ISO-27001-Certification.png";
 import girlImage from "../assets/pretty-smiling-woman-transperent-glasses 1.png";
-import { Button, Checkbox, Form, Input, Select } from "antd";
+import { Button, Carousel, Checkbox, Form, Input, Select } from "antd";
+import question from "../assets/Group 43.png";
 import {
   PauseCircleFilled,
   PlayCircleFilled,
   RightCircleFilled,
 } from "@ant-design/icons";
 import { AppContext } from "../AppContext";
+import Slider from "../components/Slider";
 
 const Home = () => {
   const [scroll, setScroll] = useState(0);
@@ -386,18 +389,51 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <div className="visas client">
+        <div className="visas client">
           <div className="service-title">CLIENT'S STORIES</div>
           <div className="services-text">DONT TAKE OUR WORD FOR IT</div>
           <div className="service-title">See what our clients have to say</div>
-          <div className="client-container">
-            <Client name="Payal" />
-            <Client name="Deepanshi" />
-            <Client name="Ankit" />
-            <Client name="Mayank" />
+          <div
+            style={{
+              display: "flex",
+              marginInline: "auto",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: "60px",
+              marginTop: "60px",
+            }}
+          >
+            <div>
+              <img src={rect} style={{ height: "400px" }} />
+            </div>
+            <div style={{ width: "40%" }}>
+              <Slider />
+            </div>
+            <img src={rect} style={{ height: "400px" }} />
           </div>
-        </div> */}
+        </div>
 
+        <div
+          style={{
+            width: "630px",
+            marginInline: "auto",
+            display: "flex",
+            textAlign: "center",
+            justifyContent: "space-between",
+            position: "relative",
+            top: "-60px",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <img src={question} alt="?" />
+          </div>
+          <div
+            style={{ fontFamily: "Noto Sans", color: "#000", fontSize: "30px" }}
+          >
+            Didn’t find what you were looking for ?
+          </div>
+        </div>
         <div
           className="get-in-touch"
           style={{ display: "flex", width: "80%", marginInline: "auto" }}

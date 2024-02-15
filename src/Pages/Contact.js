@@ -13,7 +13,7 @@ const Contact = () => {
           <img src={girlImage} />
         </div>
         <div style={{ width: "50%", padding: "80px", boxSizing: "border-box" }}>
-          <div>GET IN TOUCH WITH US</div>
+          <div className="contact-us-heading">GET IN TOUCH WITH US</div>
           <Form layout="vertical">
             <Form.Item label="Name">
               <Input placeholder="Enter Name" />
