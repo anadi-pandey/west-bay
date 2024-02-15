@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../App.css";
 import Flag from "../components/Flag";
 import OutlineOne from "../icons/HeroOutlineOne";
@@ -29,6 +29,7 @@ import {
   PlayCircleFilled,
   RightCircleFilled,
 } from "@ant-design/icons";
+import { AppContext } from "../AppContext";
 
 const Home = () => {
   const [scroll, setScroll] = useState(0);
@@ -48,31 +49,17 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const divRef = useRef(null);
   const nextDivRef = useRef(null);
+  const headerRef = useRef();
   const [showVideo, setShowVideo] = useState(false);
-
-  // const formItemLayout =
-  //   formLayout === "horizontal"
-  //     ? {
-  //         labelCol: {
-  //           span: 4,
-  //         },
-  //         wrapperCol: {
-  //           span: 14,
-  //         },
-  //       }
-  //     : null;
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const { showHeader, updateValue } = useContext(AppContext);
 
   const scrollToMiddle = () => {
-    // Get the div element
     const divElement = divRef.current;
-
-    // Calculate the middle position of the div
     const middlePosition = divElement.offsetTop + divElement.offsetHeight / 3;
-
-    // Scroll to the middle position
     window.scrollTo({
       top: middlePosition,
-      behavior: "smooth", // Optional: for smooth scrolling
+      behavior: "smooth",
     });
   };
 
@@ -84,6 +71,8 @@ const Home = () => {
       behavior: "smooth",
     });
   };
+
+  // Effects:
 
   useEffect(() => {
     const options = {
@@ -99,6 +88,7 @@ const Home = () => {
         setShowVideo(true);
         videoRef.current.play();
         videoRef.current.playbackRate = 1.25;
+        updateValue(true);
       } else if (!entry.isIntersecting && isVisible) {
         console.log("Div exited viewport");
         setShowVideo(false);
@@ -202,11 +192,11 @@ const Home = () => {
 
       <div className="home-container" ref={nextDivRef}>
         <div className="flags-container">
-          <Flag name="Europe" />
-          <Flag name="Canada" />
           <Flag name="UK" />
+          <Flag name="Canada" />
           <Flag name="US" />
           <Flag name="NewZealand" />
+          <Flag name="Europe" />
         </div>
         <div className="banner">
           <div className="banner-head">Unlocking Dreams Globally</div>
@@ -277,21 +267,19 @@ const Home = () => {
           <div className="time-sub">SERVING YOU SINCE 2009</div>
 
           <div className="time-card-container">
-            <TimeCard name="Clients" number="1000+" />
-            <TimeCard name="Universities" number="500+" />
-            <TimeCard name="Countries" number="150+" />
-            <TimeCard name="Clients" number="1000+" />
+            <TimeCard name="Successful Visas" number="2250+" />
+            <TimeCard name="Clients" number="1200+" />
+            <TimeCard name="Universities" number="150+" />
+            <TimeCard name="Countries" number="30+" />
           </div>
           <button className="learn-more-btn">Learn More About Us</button>
         </div>
 
         <div className="journey">
           <div className="journey-heading">
-            The Simplest 3 Steps for your bright future
+            Follow 3 Simple Steps Towards Global Residency{" "}
           </div>
-          <div className="journey-sub">
-            Lorem ipsum is a dummy text and we use it for Printing
-          </div>
+          <div className="journey-sub">Your dream destination awaits</div>
           <div className="journey-steps">
             <Circle number="1" />
             <div style={{ position: "relative", top: "-12px" }}>
@@ -304,18 +292,31 @@ const Home = () => {
             <Circle number="3" />
           </div>
           <div className="tile">
-            <div className="tile-item">Send Email</div>
-            <div className="tile-item">Verify Documents</div>
-            <div className="tile-item">Get Started</div>
+            <div
+              className="tile-item"
+              style={{ position: "relative", left: "-15px" }}
+            >
+              Meet Us
+            </div>
+            <div
+              className="tile-item"
+              style={{ position: "relative", left: "15px" }}
+            >
+              Discuss With Us
+            </div>
+            <div
+              className="tile-item"
+              style={{ position: "relative", left: "20px" }}
+            >
+              Fly Abroad
+            </div>
           </div>
         </div>
 
         <div className="services">
           <div className="service-title">OUR SERVICES</div>
           <div className="services-text">CHOOSE YOUR PLAN/PATH</div>
-          <div className="services-sub-text">
-            Lorem ipsum is a dummy text and we use it for Printing
-          </div>
+          <div className="services-sub-text"></div>
           <div className="services-plan-container">
             <Plan name="invest" />
             <Plan name="residency" />
@@ -356,7 +357,11 @@ const Home = () => {
             <img
               src={awards}
               alt="award"
-              style={{ position: "relative", marginRight: "-40px" }}
+              style={{
+                position: "relative",
+                marginRight: "-40px",
+                top: "-10px",
+              }}
             />
             <img
               src={choice}
@@ -403,7 +408,7 @@ const Home = () => {
           <div
             style={{ width: "50%", padding: "80px", boxSizing: "border-box" }}
           >
-            <div>GET IN TOUCH WITH US</div>
+            <div className="contact-us-heading">GET IN TOUCH WITH US</div>
             <Form layout="vertical">
               <Form.Item label="Name">
                 <Input placeholder="Enter Name" />

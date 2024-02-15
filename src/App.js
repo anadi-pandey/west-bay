@@ -5,19 +5,22 @@ import AppLayout from "./Applayout";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import { AppContextProvider } from "./AppContext";
 
 // Functions:
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path={"/"} element={<Home />} />
-          <Route path={"/about"} element={<About />} />
-          <Route path={"/contact"} element={<Contact />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AppContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path={"/"} element={<Home />} />
+            <Route path={"/about"} element={<About />} />
+            <Route path={"/contact"} element={<Contact />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppContextProvider>
   );
 };
 

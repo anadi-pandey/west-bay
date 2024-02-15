@@ -1,7 +1,7 @@
 import React from "react";
 import Europe from "../assets/Hero_Map_Europe.png";
-import Canada from "../assets/Hero_Map_canada.png";
-import UK from "../assets/Hero_Map_UK.png";
+import Canada from "../assets/Hero_Map_canada (1).png";
+import UK from "../assets/Hero_Map_UK (1).png";
 import US from "../assets/Hero_Map_US.png";
 import NewZealand from "../assets/Hero_Map_Newzealand.png";
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 const OutlineOne = (props) => (
   <svg
-    width={716}
+    width={721}
     height={89}
     viewBox="0 0 721 89"
     fill="none"

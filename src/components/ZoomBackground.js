@@ -26,14 +26,14 @@ const ZoomBackground = () => {
         backgroundSize: `${zoomLevel}%`,
         backgroundPosition: "center",
         width: "100%", // Adjust as needed
-        height: "400px", // Adjust as needed
+        height: "500px", // Adjust as needed
         overflow: "hidden",
         color: "white",
       }}
     >
       <img
         src={westbay}
-        style={{ position: "absolute", top: "15%", left: "30%" }}
+        style={{ position: "absolute", top: "8%", left: "30%" }}
       />
       <div
         style={{

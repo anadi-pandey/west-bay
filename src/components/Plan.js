@@ -60,7 +60,7 @@ const Plan = ({ name }) => {
       <img src={planObject[name]?.logo} className="plan-logo" />
       <div className="plan-heading">{planObject[name]?.heading}</div>
       <div className="plan-sub-heading">{planObject[name]?.subHeadeing}</div>
-      <Button className="plan-btn">View All Programmes</Button>
+      <Button className="plan-btn">View All Program</Button>
       <img src={planObject[name]?.stroke} className="plan-stroke" />
     </div>
   );
