@@ -14,8 +14,8 @@ import Client from "../components/Client";
 import ZoomBackground from "../components/ZoomBackground";
 import PlayAndPause from "../components/PlayAndPause";
 import ReactPlayer from "react-player";
-import globalPresence from "../assets/globalPresence.png";
-import gloabContacts from "../assets/Union.png";
+import globalPresence from "../assets/mapOriginal.png";
+import gloabContacts from "../Pages/Union (3).png";
 import Contacts from "../components/Contacts";
 import awards from "../assets/partners/Group 41.png";
 import badge from "../assets/partners/Group 42.png";
@@ -24,7 +24,7 @@ import law from "../assets/partners/Siegel.png";
 import law2 from "../assets/partners/Le_TempsBZ_TAKCH2022.png";
 import iso from "../assets/partners/ISO-27001-Certification.png";
 import girlImage from "../assets/pretty-smiling-woman-transperent-glasses 1.png";
-import { Button, Carousel, Checkbox, Form, Input, Select } from "antd";
+import { Button, Carousel, Checkbox, Form, Input, Select, Switch } from "antd";
 import question from "../assets/Group 43.png";
 import {
   PauseCircleFilled,
@@ -68,7 +68,7 @@ const Home = () => {
 
   const scrollToNextDiv = () => {
     const divElement = nextDivRef.current;
-    const middlePosition = divElement.offsetTop + divElement.offsetHeight / 2;
+    const middlePosition = (divElement.offsetTop + divElement.offsetHeight) / 3;
     window.scrollTo({
       top: middlePosition,
       behavior: "smooth",
@@ -91,7 +91,6 @@ const Home = () => {
         setShowVideo(true);
         videoRef.current.play();
         videoRef.current.playbackRate = 1.25;
-        updateValue(true);
       } else if (!entry.isIntersecting && isVisible) {
         console.log("Div exited viewport");
         setShowVideo(false);
@@ -134,9 +133,32 @@ const Home = () => {
       videoRef.current.pause();
     }
     if (operation === "skip") {
+      setPlayedOnce(true);
+      updateValue(true);
+      const home = document.getElementById("home-container");
+      if (home.style.display === "none") {
+        home.style.display = "block"; // or "inline", "inline-block", etc. depending on the element type
+      } else {
+        home.style.display = "none";
+      }
       scrollToNextDiv();
     }
   };
+
+  const [mainIndex, setMainIndex] = useState(0);
+
+  const slideNext = () => {
+    if (mainIndex < 2) {
+      setMainIndex(mainIndex + 1);
+    }
+  };
+
+  const slidePrev = () => {
+    if (mainIndex > 0) {
+      setMainIndex(mainIndex - 1);
+    }
+  };
+
   return (
     <>
       <ZoomBackground />
@@ -147,15 +169,18 @@ const Home = () => {
             src="/videoplay.mp4"
             type="video/mp4"
             onTimeUpdate={handleProgress}
-            onEnded={() => setPlayedOnce(true)}
+            onEnded={() => {
+              handlePausePlay("skip");
+            }}
             autoplay
             muted
+            ONm={() => console.log("Dikhao")}
           ></video>
           <div
             style={{
               position: "absolute",
               bottom: "100px",
-              right: 0,
+              right: "37%",
               textAlign: "center",
             }}
           >
@@ -163,7 +188,7 @@ const Home = () => {
               <PlayCircleFilled
                 style={{
                   color: "rgba(236,236,236,0.5)",
-                  fontSize: "78px",
+                  fontSize: "58px",
                   marginInline: "50px",
                 }}
                 onClick={() => handlePausePlay("play")}
@@ -173,7 +198,7 @@ const Home = () => {
               <PauseCircleFilled
                 style={{
                   color: "rgba(236,236,236,0.5)",
-                  fontSize: "78px",
+                  fontSize: "58px",
                   marginInline: "50px",
                 }}
                 onClick={() => handlePausePlay("pause")}
@@ -182,10 +207,11 @@ const Home = () => {
             <RightCircleFilled
               style={{
                 color: "rgba(236,236,236,0.5)",
-                fontSize: "78px",
+                fontSize: "58px",
                 marginInline: "50px",
               }}
               onClick={() => {
+                updateValue(true);
                 handlePausePlay("skip");
               }}
             />
@@ -193,7 +219,12 @@ const Home = () => {
         </div>
       )}
 
-      <div className="home-container" ref={nextDivRef}>
+      <div
+        className="home-container"
+        ref={nextDivRef}
+        id="home-container"
+        style={{ display: "none" }}
+      >
         <div className="flags-container">
           <Flag name="UK" />
           <Flag name="Canada" />
@@ -237,7 +268,7 @@ const Home = () => {
                 marginLeft: "100px",
                 boxSizing: "border-box",
                 width: "1250px",
-                height: "1150px",
+                height: "770px",
               }}
             >
               <div style={{ position: "absolute", top: "0", left: "0" }}>
@@ -278,11 +309,13 @@ const Home = () => {
           <button className="learn-more-btn">Learn More About Us</button>
         </div>
 
-        <div className="journey">
+        <div className="journey" style={{ marginTop: "100px" }}>
           <div className="journey-heading">
             Follow 3 Simple Steps Towards Global Residency{" "}
           </div>
-          <div className="journey-sub">Your dream destination awaits</div>
+          <div className="journey-sub" style={{ fontSize: "28px" }}>
+            Your dream destination awaits
+          </div>
           <div className="journey-steps">
             <Circle number="1" />
             <div style={{ position: "relative", top: "-12px" }}>
@@ -316,10 +349,21 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="services">
+        <div
+          className="services"
+          style={{
+            marginTop: "60px",
+            paddingBottom: "0",
+          }}
+        >
           <div className="service-title">OUR SERVICES</div>
           <div className="services-text">CHOOSE YOUR PLAN/PATH</div>
-          <div className="services-sub-text"></div>
+
+          <div className="services-sub-text">
+            {" "}
+            Explore Your Options: Uncover Our Services to Find the Right Path
+            for Your Journey.
+          </div>
           <div className="services-plan-container">
             <Plan name="invest" />
             <Plan name="residency" />
@@ -330,16 +374,23 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="visas">
+        <div
+          className="visas"
+          style={{
+            marginTop: "50px",
+            paddingTop: "110px",
+            paddingBottom: "90px",
+          }}
+        >
           <div className="service-title">CLIENT'S PREFERENCE</div>
           <div className="services-text">BEST PR / VISAS TO EXPLORE</div>
           <div className="visas-container">
-            <Visa name={"australia"} />
-            <Visa name={"uk"} />
-            <Visa name={"uae"} />
-            <Visa name={"europe"} />
-            <Visa name={"germany"} />
             <Visa name={"canada"} />
+            <Visa name={"new_zealand"} />
+            <Visa name={"australia"} />
+            <Visa name={"usa"} />
+            <Visa name={"uk"} />
+            <Visa name={"europe"} />
           </div>
         </div>
 
@@ -355,7 +406,7 @@ const Home = () => {
           />
           <div
             className="carousel-partners"
-            style={{ marginTop: "200px", position: "relative" }}
+            style={{ marginTop: "240px", position: "relative" }}
           >
             <img
               src={awards}
@@ -363,7 +414,7 @@ const Home = () => {
               style={{
                 position: "relative",
                 marginRight: "-40px",
-                top: "-10px",
+                top: "-22px",
               }}
             />
             <img
@@ -403,13 +454,15 @@ const Home = () => {
               marginTop: "60px",
             }}
           >
-            <div>
-              <img src={rect} style={{ height: "400px" }} />
+            <div style={{ width: "80%", position: "relative" }}>
+              <Slider mainIndex={mainIndex} />
+              <div className="btn-prev" onClick={slidePrev}>
+                &lang;
+              </div>
+              <div className="btn-next" onClick={slideNext}>
+                &rang;
+              </div>
             </div>
-            <div style={{ width: "40%" }}>
-              <Slider />
-            </div>
-            <img src={rect} style={{ height: "400px" }} />
           </div>
         </div>
 
@@ -421,7 +474,7 @@ const Home = () => {
             textAlign: "center",
             justifyContent: "space-between",
             position: "relative",
-            top: "-60px",
+            top: "-10px",
             alignItems: "center",
           }}
         >
@@ -429,14 +482,23 @@ const Home = () => {
             <img src={question} alt="?" />
           </div>
           <div
-            style={{ fontFamily: "Noto Sans", color: "#000", fontSize: "30px" }}
+            style={{
+              fontFamily: "Noto Sans",
+              color: "#000",
+              fontSize: "30px",
+            }}
           >
             Didn’t find what you were looking for ?
           </div>
         </div>
         <div
           className="get-in-touch"
-          style={{ display: "flex", width: "80%", marginInline: "auto" }}
+          style={{
+            display: "flex",
+            width: "80%",
+            marginInline: "auto",
+            marginTop: "20px",
+          }}
         >
           <div className="get-image">
             <img src={girlImage} />
@@ -446,21 +508,181 @@ const Home = () => {
           >
             <div className="contact-us-heading">GET IN TOUCH WITH US</div>
             <Form layout="vertical">
-              <Form.Item label="Name">
-                <Input placeholder="Enter Name" />
+              <Form.Item
+                label={
+                  <span
+                    style={{
+                      fontSize: "20px",
+                      color: "#000",
+                      lineHeight: "150%",
+                      position: "relative",
+                      top: "5px",
+                      fontFamily: "Noto Sans",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    Name
+                  </span>
+                }
+                style={{ marginBottom: "20px" }}
+              >
+                <Input
+                  placeholder="Enter Name"
+                  style={{
+                    height: "50px",
+                    boxSizing: "border-box",
+                    fontSize: "medium",
+                  }}
+                />
               </Form.Item>
-              <Form.Item label="Preferred Country">
-                <Select placeholder="Choose Country" />
+              <Form.Item
+                label={
+                  <span
+                    style={{
+                      fontSize: "20px",
+                      color: "#000",
+                      lineHeight: "150%",
+                      position: "relative",
+                      top: "5px",
+                      fontFamily: "Noto Sans",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    Preferred Country
+                  </span>
+                }
+                style={{ marginBottom: "20px" }}
+              >
+                <Select
+                  placeholder={
+                    <span
+                      style={{
+                        fontFamily: "Noto Sans",
+                        fontSize: "larger",
+                      }}
+                    >
+                      Choose Country
+                    </span>
+                  }
+                  style={{
+                    height: "50px",
+                    boxSizing: "border-box",
+                    fontSize: "larger",
+                  }}
+                />
               </Form.Item>
-              <Form.Item label="Contact Number">
-                <Input placeholder="Contact Number" />
+              <Form.Item
+                label={
+                  <span
+                    style={{
+                      fontSize: "20px",
+                      color: "#000",
+                      lineHeight: "150%",
+                      position: "relative",
+                      top: "5px",
+                      fontFamily: "Noto Sans",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    Contact Number
+                  </span>
+                }
+                style={{ marginBottom: "20px" }}
+              >
+                <Input
+                  placeholder="Contact Number"
+                  style={{
+                    height: "50px",
+                    boxSizing: "border-box",
+                    fontSize: "medium",
+                  }}
+                />
               </Form.Item>
-              <Form.Item label="Email Address">
-                <Input placeholder="Contact Number" />
+              <Form.Item style={{ marginBottom: "20px" }}>
+                <Switch defaultChecked />
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#000",
+                    lineHeight: "150%",
+                    marginLeft: "20px",
+                    position: "relative",
+                    top: "5px",
+                    fontFamily: "Noto Sans",
+                  }}
+                >
+                  Use this as Whatsapp Number
+                </span>
               </Form.Item>
-              <Checkbox /> <span>I accept the Terms & Conditions</span>
-              <div style={{ margin: "20px auto", textAlign: "center" }}>
-                <Button style={{ width: "160px" }}>Submit</Button>
+              <Form.Item
+                label={
+                  <span
+                    style={{
+                      fontSize: "20px",
+                      color: "#000",
+                      lineHeight: "150%",
+                      position: "relative",
+                      top: "5px",
+                      fontFamily: "Noto Sans",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    Email Address
+                  </span>
+                }
+                style={{ marginBottom: "20px" }}
+              >
+                <Input
+                  placeholder="Email "
+                  style={{
+                    height: "50px",
+                    boxSizing: "border-box",
+                    fontSize: "medium",
+                  }}
+                />
+              </Form.Item>
+              <Checkbox
+                style={{
+                  marginRight: "10px",
+                  position: "relative",
+                  top: "3px",
+                }}
+              />{" "}
+              <span
+                style={{
+                  fontSize: "20px",
+                  color: "#000",
+                  lineHeight: "150%",
+                  position: "relative",
+                  top: "5px",
+                  fontFamily: "Noto Sans",
+                  marginBottom: "5px",
+                  marginTop: "30px",
+                }}
+              >
+                I accept the Terms & Conditions
+              </span>
+              <div
+                style={{
+                  margin: "30px auto",
+                  textAlign: "center",
+                  marginTop: "30px",
+                }}
+              >
+                <Button
+                  style={{
+                    width: "100%",
+                    height: "60px",
+                    backgroundColor: "#045690",
+                    fontSize: "20px",
+                    fontFamily: "Noto Sans",
+                    color: "white",
+                    textTransform: "capitalize",
+                    fontWeight: "600",
+                  }}
+                >
+                  Submit
+                </Button>
               </div>
             </Form>
           </div>

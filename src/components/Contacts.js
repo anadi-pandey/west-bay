@@ -14,63 +14,21 @@ import { Divider } from "antd";
 const Contacts = () => {
   return (
     <div className="contact-container">
-      <div className="contact-row">
+      <div
+        className="contact-row"
+        style={{
+          display: "flex",
+          height: "fit-content",
+        }}
+      >
         <div className="contact-card">
-          <img src={greece} alt="flag" />
-          <div className="country-name">GREECE</div>
+          <img src={canada} alt="flag" />
+          <div className="country-name">CANADA</div>
           <div className="contact-content">
             <PhoneFilled /> +30 694 149 9621
           </div>
         </div>
-        <div className="contact-card">
-          <img src={malta} alt="flag" />
-          <div className="country-name">MALTA</div>
-          <div className="contact-content">
-            <PhoneFilled />
-            +30 694 149 9621
-          </div>
-        </div>
-        <div className="contact-card">
-          <img src={turkey} alt="flag" />
-          <div className="country-name">TURKEY</div>
-          <div className="contact-content">
-            <PhoneFilled /> +30 694 149 9621
-          </div>
-        </div>
-      </div>
-      <div>
-        <div>
-          <Divider
-            type="vertical"
-            style={{
-              height: "200px",
-              position: "relative",
-              top: "90px",
-            }}
-          />
-        </div>
-        <div>
-          <Divider
-            type="vertical"
-            style={{
-              height: "200px",
-              position: "relative",
-              top: "180px",
-            }}
-          />
-        </div>
-        <div>
-          <Divider
-            type="vertical"
-            style={{
-              height: "200px",
-              position: "relative",
-              top: "260px",
-            }}
-          />
-        </div>
-      </div>
-      <div className="contact-row">
+
         <div className="contact-card">
           <img src={unitedkingdom} alt="flag" />
           <div className="country-name">UNITED KINGDOM</div>
@@ -78,11 +36,36 @@ const Contacts = () => {
             <PhoneFilled /> +30 694 149 9621
           </div>
         </div>
+
+        <div className="contact-card">
+          <img src={malta} alt="flag" />
+          <div className="country-name">MALTA</div>
+          <div className="contact-content">
+            <PhoneFilled />
+            +356 9991 3300
+          </div>
+        </div>
+        <div className="contact-card">
+          <img src={turkey} alt="flag" />
+          <div className="country-name">TURKEY</div>
+          <div className="contact-content">
+            <PhoneFilled /> +356 9991 3300
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="contact-row"
+        style={{
+          display: "flex",
+          height: "fit-content",
+        }}
+      >
         <div className="contact-card">
           <img src={Ireland} alt="flag" />
           <div className="country-name">IRELAND</div>
           <div className="contact-content">
-            <PhoneFilled /> +30 694 149 9621
+            <PhoneFilled /> +356 9991 3300
           </div>
         </div>
         <div className="contact-card">
@@ -92,43 +75,9 @@ const Contacts = () => {
             <PhoneFilled /> +30 694 149 9621
           </div>
         </div>
-      </div>
-      <div>
-        <div>
-          <Divider
-            type="vertical"
-            style={{
-              height: "200px",
-              position: "relative",
-              top: "90px",
-            }}
-          />
-        </div>
-        <div>
-          <Divider
-            type="vertical"
-            style={{
-              height: "200px",
-              position: "relative",
-              top: "180px",
-            }}
-          />
-        </div>
-        <div>
-          <Divider
-            type="vertical"
-            style={{
-              height: "200px",
-              position: "relative",
-              top: "260px",
-            }}
-          />
-        </div>
-      </div>
-      <div className="contact-row">
         <div className="contact-card">
-          <img src={canada} alt="flag" />
-          <div className="country-name">CANADA</div>
+          <img src={greece} alt="flag" />
+          <div className="country-name">GREECE</div>
           <div className="contact-content">
             <PhoneFilled /> +30 694 149 9621
           </div>
@@ -137,9 +86,22 @@ const Contacts = () => {
           <img src={india} alt="flag" />
           <div className="country-name">DELHI,INDIA</div>
           <div className="contact-content">
-            <PhoneFilled /> +30 694 149 9621
+            <PhoneFilled />
+            +91 9873197533
           </div>
         </div>
+      </div>
+      <div
+        style={{
+          width: "50%",
+          marginInline: "auto",
+          margin: "0px auto",
+          color: "#505050",
+          fontFamily: "Noto Sans",
+          fontSize: "18px",
+        }}
+      >
+        Visit Us: C 619, Saraswati Vihar, Pitampura, New Delhi{" "}
       </div>
     </div>
   );

@@ -3,11 +3,13 @@
   align-items: center;
   padding: 12px;
   position: relative;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   background-color: white;
   font-weight: 600;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 .nav-container {
@@ -119,15 +121,15 @@
 .scroll-back {
   position: fixed;
   left: 82vw;
-  top: 83vh;
+  top: 85vh;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  font-size: 30px;
+  font-size: 25px;
   color: #045690;
   padding: 20px;
   border-radius: 50px;
   background-color: rgba(259, 259, 259, 0.5);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -188,7 +190,7 @@
   position: relative;
   border: solid white 2px;
   position: relative;
-  top: -150px;
+  top: -130px;
   text-align: center;
 }
 
@@ -213,6 +215,7 @@
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
+  font-size: 38px;
 }
 
 .time-card-container {
@@ -253,16 +256,17 @@
 }
 
 .learn-more-btn {
-  width: (283px);
-  height: (60px);
+  width: 363px;
+  height: 60px;
   border-radius: 4px;
   border: 1px solid #00467f;
   cursor: pointer;
   color: #004b6a;
   font-weight: 600;
-  margin-top: 120px;
+  margin-top: 140px;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
+  font-size: 24px;
 }
 
 .journey {
@@ -309,9 +313,9 @@
 .number-in-circle {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 45%;
   font-family: Noto Sans;
-  font-size: 30px;
+  font-size: 45px;
   font-weight: 700;
   line-height: 60px;
   letter-spacing: 0em;
@@ -385,6 +389,7 @@
   background-size: cover;
   height: 875px;
   position: relative;
+  width: 50%;
 }
 
 .plan-heading {
@@ -400,11 +405,12 @@
   position: relative;
   top: 180px;
   width: 80%;
+  z-index: 1000;
 }
 
 .plan-sub-heading {
   font-family: Noto Sans;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 400;
   line-height: 60px;
   letter-spacing: 0em;
@@ -413,6 +419,7 @@
   padding: 50px;
   position: relative;
   top: 120px;
+  z-index: 1000;
 }
 
 .plan-btn {
@@ -425,10 +432,11 @@
   bottom: 100px;
   left: 50px;
   font-weight: 600;
-  font-size: 24;
-  height: 50px;
-  width: 205px;
+  font-size: 22px;
+  height: 60px;
+  width: 290px;
   box-sizing: border-box;
+  font-family: Noto Sans;
 }
 
 .plan-logo {
@@ -465,7 +473,7 @@
 .visa-name {
   position: absolute;
   font-family: Noto Sans;
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 700;
   line-height: 29px;
   letter-spacing: 0em;
@@ -646,7 +654,16 @@ button:hover {
 
 .global_presence {
   text-align: center;
-  margin-top: 290px;
+  margin-top: 320px;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #004b6a !important;
+  border-color: #00467f !important;
+}
+
+.ant-switch {
+  background: #00467f !important;
 }
 
 .global-sub {
@@ -768,20 +785,20 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  height: 1000px;
+  height: 500px;
+  align-items: center;
 }
 
 .contact-card {
-  width: 200px;
-  margin: 90px 10px;
-  height: 200px;
+  width: 270px;
+  height: 180px;
   box-sizing: border-box;
 }
 .contact-card img {
   margin: 10px;
 }
 .contact-row {
-  margin-bottom: 20px;
+  padding: 60px 0;
 }
 
 .country-name {
@@ -870,7 +887,7 @@ button:hover {
 
 .tile-item {
   font-family: Noto Sans;
-  font-size: 30;
+  font-size: 30px;
   font-weight: 600;
 }
 
@@ -880,9 +897,9 @@ button:hover {
   font-style: normal;
   line-height: 150%;
   color: #045690;
-  font-size: 40px;
+  font-size: 29px;
   position: relative;
-  top: -10px;
+  top: -15px;
 }
 
 .media {
@@ -935,13 +952,21 @@ button:hover {
 .btn-next {
   position: absolute;
   font-size: 50px;
-  color: lightgray;
+  color: #3c3c3c;
   cursor: pointer;
   top: 13rem;
 }
 .btn-prev {
-  left: 1rem;
+  left: -6rem;
 }
 .btn-next {
-  right: 1rem;
+  right: -6rem;
+}
+
+.ant-modal-content {
+  background-color: transparent !important;
+}
+
+.ant-input {
+  font-family: Noto Sans !important;
 }

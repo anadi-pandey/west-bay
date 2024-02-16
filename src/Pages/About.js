@@ -21,6 +21,7 @@ const About = () => {
     <div
       style={{
         backgroundColor: "white",
+        paddingTop: "200px",
       }}
     >
       <div className="section-container">

@@ -24,15 +24,21 @@ const AppLayout = () => {
           </main>
         </div>
       </main>
-      <div className="app-icons whats-app">
-        <WhatsApp />
-      </div>
-      <div className="app-icons scroll-app">
-        <Scroll />
-      </div>
-      <div className="app-icons scroll-back" onClick={() => scrollBack()}>
-        Back to Top
-      </div>
+      {showHeader && (
+        <div className="app-icons whats-app">
+          <WhatsApp />
+        </div>
+      )}
+      {showHeader && (
+        <div className="app-icons scroll-app">
+          <Scroll />
+        </div>
+      )}
+      {showHeader && (
+        <div className="app-icons scroll-back" onClick={() => scrollBack()}>
+          Back to Top
+        </div>
+      )}
     </div>
   );
 };

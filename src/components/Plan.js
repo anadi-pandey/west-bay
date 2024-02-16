@@ -21,7 +21,7 @@ const Plan = ({ name }) => {
     invest: {
       heading: "Citizenship by Investment",
       subHeadeing:
-        "Lorem ipsum is a dummy text and we use it for Printing. Lorem ipsum is a dummy text and we use it for Printing",
+        "Invest in a new chapter of life – discover Citizenship by Investment for a secure and promising future.",
       logo: PlanOneLogo,
       backgroundImage: PlanOneBackground,
       stroke: PlanOneImage,
@@ -29,7 +29,7 @@ const Plan = ({ name }) => {
     residency: {
       heading: "PERMANENT RESIDENCY",
       subHeadeing:
-        "Lorem ipsum is a dummy text and we use it for Printing. Lorem ipsum is a dummy text and we use it for Printing",
+        "Build roots in a new home with ease – explore our Permanent Residency services for a stable and global lifestyle.",
       logo: PlanTwoLogo,
       backgroundImage: PlanTwoBackground,
       stroke: PlanTwoImage,
@@ -37,7 +37,7 @@ const Plan = ({ name }) => {
     golden: {
       heading: "EUROPEAN GOLDEN VISA",
       subHeadeing:
-        "Lorem ipsum is a dummy text and we use it for Printing. Lorem ipsum is a dummy text and we use it for Printing",
+        "Invest in your European dream – explore the European Golden Visa for a seamless pathway to a new life abroad.",
       logo: PlanThreeLogo,
       backgroundImage: PlanThreeBackground,
       stroke: PlanThreeImage,
@@ -45,7 +45,7 @@ const Plan = ({ name }) => {
     overseas: {
       heading: "OVERSEAS EDUCATION",
       subHeadeing:
-        "Lorem ipsum is a dummy text and we use it for Printing. Lorem ipsum is a dummy text and we use it for Printing",
+        "Empower your journey to knowledge – unlock Overseas Education opportunities for a world-class academic experience.",
       logo: PlanFourLogo,
       backgroundImage: PlanFourBackground,
       stroke: PlanFourImage,
