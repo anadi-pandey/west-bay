@@ -16,6 +16,7 @@ const AppContextProvider = ({ children }) => {
         isPlayedOnce: newValue,
         currentSection: "flags",
         isBackTopVisible: false,
+        isDropArrowVisible: true,
       });
     }
     if (operation === "showBackToTop") {
@@ -23,6 +24,15 @@ const AppContextProvider = ({ children }) => {
         isPlayedOnce: true,
         currentSection: "flags",
         isBackTopVisible: newValue,
+        isDropArrowVisible: true,
+      });
+    }
+    if (operation === "showDownArrow") {
+      setAppState({
+        isPlayedOnce: true,
+        currentSection: "flags",
+        isBackTopVisible: true,
+        isDropArrowVisible: newValue,
       });
     }
   };
@@ -30,6 +40,7 @@ const AppContextProvider = ({ children }) => {
   const [appState, setAppState] = useState({
     isPlayedOnce: false,
     currentSection: "flags",
+    isDropArrowVisible: true,
   });
 
   // Provide the context value to the child components

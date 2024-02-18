@@ -28,7 +28,7 @@ const Header = () => {
           backgroundColor: "white",
           padding: "50px",
           width: "100vw",
-          top: "100px",
+          top: "130px",
           left: "0",
           boxShadow: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
         }}
@@ -44,16 +44,36 @@ const Header = () => {
           <div className="service-content">
             <div>
               <InfoCircleFilled
-                style={{ marginInline: "10px", color: "#3C3C3C" }}
+                style={{
+                  marginInline: "10px",
+                  color: "#3C3C3C",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
               />
               Canada
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Malta
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Carribean Islands
             </div>
           </div>
@@ -63,23 +83,58 @@ const Header = () => {
           <div className="service-name">PERMANENT RESIDENCY</div>
           <div className="service-content">
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Canada
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Australia
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               New Zealand
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               UK
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Italy
             </div>
           </div>
@@ -89,23 +144,58 @@ const Header = () => {
           <div className="service-name">European Golden Visa</div>
           <div className="service-content">
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Italy
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Portugal
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Spain
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Greece
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Ireland
             </div>
           </div>
@@ -115,23 +205,58 @@ const Header = () => {
           <div className="service-name">Overseas Education</div>
           <div className="service-content">
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Australia
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               US
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               UK
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Canada
             </div>
             <div>
-              <InfoCircleFilled style={{ marginInline: "10px" }} />
+              <InfoCircleFilled
+                style={{
+                  marginInline: "10px",
+                  fontSize: "8px",
+                  position: "relative",
+                  top: "-2px",
+                }}
+              />
               Europe
             </div>
           </div>
@@ -208,7 +333,7 @@ const Header = () => {
       <div className="logo-container" style={{ paddingLeft: "15px" }}>
         <Logo />
       </div>
-      <div className="nav-routes">
+      <div className="nav-routes" style={{ marginLeft: "10%" }}>
         <header>
           <nav>
             <div className="nav-ul">
@@ -278,7 +403,7 @@ const Header = () => {
         <div
           style={{
             position: "relative",
-            left: "-10px",
+            left: "-25px",
             cursor: "pointer",
             display: "flex",
           }}

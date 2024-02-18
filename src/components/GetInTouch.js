@@ -1,7 +1,8 @@
 import { Button, Checkbox, Form, Input, Modal, Select, Switch } from "antd";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import girlImage from "../assets/pretty-smiling-woman-transperent-glasses 1.png";
 import thanks from "../Pages/Illustration 2 (1).png";
+import { AppContext } from "../AppContext";
 
 const GetInTouch = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -165,6 +166,47 @@ const GetInTouch = () => {
     },
   ];
 
+  //   Ref
+  const divRef = useRef(null);
+  const { appState, updateValue } = useContext(AppContext);
+
+  //   State:
+  const [isVisible, setIsVisible] = useState(false);
+
+  //   Effects:
+  useEffect(() => {
+    console.log("Global Presence Mounted");
+  }, []);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !isVisible) {
+        console.log("Flags Collecion Entered viewport");
+        updateValue(false, "showDownArrow");
+      } else if (!entry.isIntersecting && isVisible) {
+        console.log("Flags Collecion exited viewport");
+        updateValue(true, "showDownArrow");
+      }
+      setIsVisible(entry.isIntersecting);
+    }, options);
+
+    if (divRef.current) {
+      observer.observe(divRef.current);
+    }
+
+    return () => {
+      if (divRef.current) {
+        observer.unobserve(divRef.current);
+      }
+    };
+  }, [isVisible]);
+
   return (
     <div>
       {" "}
@@ -176,6 +218,7 @@ const GetInTouch = () => {
           marginInline: "auto",
           marginTop: "20px",
         }}
+        ref={divRef}
       >
         <div className="get-image">
           <img src={girlImage} />
