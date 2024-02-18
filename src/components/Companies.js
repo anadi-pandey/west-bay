@@ -9,7 +9,7 @@ import iso from "../assets/partners/ISO-27001-Certification.png";
 const Companies = () => {
   return (
     <div>
-      <div style={{ position: "relative", height: "800px", marginTop: "80px" }}>
+      <div style={{ position: "relative", height: "700px", marginTop: "80px" }}>
         <div className="service-title" style={{ marginBottom: "60px" }}>
           ASSOCIATED COMPANIES
         </div>

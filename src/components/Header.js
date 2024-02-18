@@ -9,10 +9,8 @@ import {
   InfoCircleFilled,
 } from "@ant-design/icons";
 import "../App.css";
-import search_png from "../assets/recentsearchesmajor-svgrepo-com.svg";
-import s1 from "../assets/Icon_Clients (3).png";
-import s2 from "../assets/Icon_Clients (2).png";
-import s3 from "../assets/Icon_Uni (3).png";
+import searchIcon from "./SearchIcon.png";
+import closeIcon from "./closeIcon.png";
 
 const Header = () => {
   const [services, setServices] = useState(false);
@@ -153,37 +151,64 @@ const Header = () => {
 
   return (
     <div className="app-header">
-      <Modal
-        title=""
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={null}
-        closeIcon={null}
-        style={{
-          border: "solid 1px red",
-          position: "absolute",
-          top: "130px",
-        }}
-        width={"100vw"}
-      >
-        <div style={{ border: "solid 1px green" }}>
-          <Input
-            placeholder="Search"
-            style={{
-              backgroundColor: "transparent !important",
-              height: "40px",
-              fontSize: "larger",
-              width: "50%",
-            }}
-            className="search-bar"
-          />
+      {isModalOpen && (
+        <div
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          style={{
+            position: "absolute",
+            top: "130px",
+            width: "100vw",
+            left: 0,
+            backgroundColor: "white",
+            padding: "20px",
+            boxShadow: "rgba(255, 255, 255, 0.2) 0px 3px 5px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div style={{ width: "50%", marginInline: "auto", display: "flex" }}>
+            <Input
+              placeholder="Search"
+              style={{
+                backgroundColor: "transparent !important",
+                height: "40px",
+                fontSize: "larger",
+                width: "100%",
+                height: "60px",
+              }}
+              className="search-bar"
+            />
+            <img
+              src={searchIcon}
+              alt="Search"
+              style={{
+                height: "25px",
+                position: "relative",
+                left: "-45px",
+                top: "18px",
+                cursor: "pointer",
+              }}
+            />
+            <img
+              src={closeIcon}
+              alt="Search"
+              style={{
+                height: "25px",
+                position: "relative",
+                left: "0px",
+                top: "16px",
+                cursor: "pointer",
+              }}
+              onClick={() => setIsModalOpen(false)}
+            />
+          </div>
         </div>
-      </Modal>
+      )}
       <div className="logo-container" style={{ paddingLeft: "15px" }}>
         <Logo />
       </div>
-      <div className="nav-routes" style={{ marginLeft: "10%" }}>
+      <div className="nav-routes">
         <header>
           <nav>
             <div className="nav-ul">
@@ -258,7 +283,7 @@ const Header = () => {
             display: "flex",
           }}
         >
-          <SearchIcon />
+          <SearchIcon onClick={() => showModal(true)} />
         </div>
         <div>
           <button className="header-button">Request a Call back</button>

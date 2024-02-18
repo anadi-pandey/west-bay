@@ -25,7 +25,7 @@ const Timeline = () => {
         // updateValue(true, "showBackToTop");
         setStartCount(true);
       } else if (!entry.isIntersecting && isVisible) {
-        setStartCount(true);
+        setStartCount(false);
         console.log("Global Presence  exited viewport");
       }
       setIsVisible(entry.isIntersecting);

@@ -17,7 +17,7 @@ const TimeCard = ({ name, number, startCount }) => {
         {
           <CountUp
             start={0}
-            end={Number(number) + 100}
+            end={Number(number)}
             duration={1}
             startNow={startCount}
           />

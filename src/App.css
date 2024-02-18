@@ -190,7 +190,7 @@
   position: relative;
   border: solid white 2px;
   position: relative;
-  top: -130px;
+  top: -90px;
   text-align: center;
 }
 
@@ -243,6 +243,8 @@
   margin-inline: 40px;
   padding: 10px;
   border-radius: 10px;
+  width: 210px !important;
+  height: 250px;
 }
 
 .text-heading {
@@ -265,7 +267,7 @@
   cursor: pointer;
   color: #00467f;
   font-weight: 600;
-  margin-top: 140px;
+  margin-top: 20px;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   background-color: white;
@@ -281,24 +283,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 200px !important;
+  margin-top: 180px !important;
 }
 
 .journey-heading {
   font-family: Noto Sans;
   font-size: 44px;
   font-weight: 700;
-  line-height: 100px;
   letter-spacing: 0em;
   text-align: center;
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   text-transform: uppercase;
+  height: fit-content !important;
+  padding-top: 0 !important;
+  margin-top: 60px;
 }
 
 .journey-sub {
-  margin: 28px auto 60px;
+  margin: 30px auto 40px;
   color: #e7e7e7;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
@@ -330,7 +334,7 @@
 }
 
 .tile {
-  z-index: 100000;
+  z-index: 1002;
   width: 1200px;
   display: flex;
   justify-content: space-around;
@@ -344,7 +348,7 @@
   position: relative;
   top: 0;
   text-align: center;
-  padding: 50px 0;
+  padding: 0px 0;
 }
 
 .service-title {
@@ -467,7 +471,7 @@
 }
 
 .service-title {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .services-text {
@@ -652,7 +656,7 @@ main {
   border-color: #00467f !important;
 }
 
-.ant-switch {
+.ant-switch-checked {
   background: #00467f !important;
 }
 
