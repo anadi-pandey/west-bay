@@ -258,7 +258,7 @@ const Header = () => {
             display: "flex",
           }}
         >
-          <SearchIcon onClick={() => showModal(true)} />
+          <SearchIcon />
         </div>
         <div>
           <button className="header-button">Request a Call back</button>
