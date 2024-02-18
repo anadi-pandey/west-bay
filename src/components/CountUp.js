@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 const CountUp = ({ start, end, duration, startNow }) => {
   const [count, setCount] = useState(start);
   const [isRunning, setIsRunning] = useState(false);
-  const step = (end - start) / (duration * 60); // Assuming duration is in seconds
+  const step = (end - start) / (duration * 100); // Assuming duration is in seconds
 
   useEffect(() => {
+    console.log(step);
     let timer;
     if (isRunning) {
       timer = setInterval(() => {
@@ -26,7 +27,9 @@ const CountUp = ({ start, end, duration, startNow }) => {
   };
 
   useEffect(() => {
+    console.log(startNow, "Any Change");
     if (startNow) {
+      setCount(0);
       handleStart();
     }
   }, [startNow]);

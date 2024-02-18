@@ -6,7 +6,7 @@ const VisaCollection = () => {
     <div
       className="visas"
       style={{
-        marginTop: "50px",
+        marginTop: "25px",
         paddingTop: "110px",
         paddingBottom: "90px",
       }}

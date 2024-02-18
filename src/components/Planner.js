@@ -12,16 +12,16 @@ const Planner = () => {
         }}
       >
         <div className="service-title">OUR SERVICES</div>
-        <div className="services-text" style={{ marginTop: "40px" }}>
+        <div className="services-text" style={{ marginTop: "25px" }}>
           CHOOSE YOUR PLAN/PATH
         </div>
 
-        <div className="services-sub-text" style={{ marginTop: "40px" }}>
+        <div className="services-sub-text" style={{ marginTop: "25px" }}>
           {" "}
           Explore Your Options: Uncover Our Services to Find the Right Path for
           Your Journey.
         </div>
-        <div className="services-plan-container" style={{ marginTop: "60px" }}>
+        <div className="services-plan-container" style={{ marginTop: "45px" }}>
           <Plan name="invest" />
           <Plan name="residency" />
         </div>

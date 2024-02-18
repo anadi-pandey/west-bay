@@ -18,6 +18,7 @@ import {
 } from "@ant-design/icons";
 import { AppContext } from "../AppContext";
 import thanks from "./Illustration 2 (1).png";
+import GetInTouch from "../components/GetInTouch";
 
 const GlobalPresence = React.lazy(() => import("../components/GlobalPresence"));
 const Timeline = React.lazy(() => import("../components/Timeline"));
@@ -173,6 +174,13 @@ const Home = () => {
     { value: "+61", label: "+64" },
   ];
 
+  useEffect(() => {
+    const home = document.getElementById("home-container");
+    if (appState?.isPlayedOnce) {
+      home.style.display = "block"; // or "inline", "inline-block", etc. depending on the element type
+    }
+  }, [appState]);
+
   return (
     <>
       {!appState?.isPlayedOnce && <ZoomBackground />}
@@ -236,7 +244,7 @@ const Home = () => {
         className="home-container"
         ref={nextDivRef}
         id="home-container"
-        style={{ display: "none" }}
+        style={{ display: "none", width: "100vw", boxSizing: "border-box" }}
       >
         <Suspense fallback={<div>Loading...</div>}>
           <FlagsCollection />
@@ -274,267 +282,8 @@ const Home = () => {
             Didn’t find what you were looking for ?
           </div>
         </div>
-        <div
-          className="get-in-touch"
-          style={{
-            display: "flex",
-            width: "80%",
-            marginInline: "auto",
-            marginTop: "20px",
-          }}
-        >
-          <div className="get-image">
-            <img src={girlImage} />
-          </div>
-          <div
-            style={{ width: "50%", padding: "80px", boxSizing: "border-box" }}
-          >
-            <div className="contact-us-heading">GET IN TOUCH WITH US</div>
-            <Form layout="vertical">
-              <Form.Item
-                label={
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#000",
-                      lineHeight: "150%",
-                      position: "relative",
-                      top: "5px",
-                      fontFamily: "Noto Sans",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Name
-                  </span>
-                }
-                style={{ marginBottom: "20px" }}
-              >
-                <Input
-                  placeholder="Enter Name"
-                  style={{
-                    height: "50px",
-                    boxSizing: "border-box",
-                    fontSize: "medium",
-                  }}
-                />
-              </Form.Item>
-              <Form.Item
-                label={
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#000",
-                      lineHeight: "150%",
-                      position: "relative",
-                      top: "5px",
-                      fontFamily: "Noto Sans",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Preferred Country
-                  </span>
-                }
-                style={{ marginBottom: "20px" }}
-              >
-                <Select
-                  placeholder={
-                    <span
-                      style={{
-                        fontFamily: "Noto Sans",
-                        fontSize: "larger",
-                      }}
-                    >
-                      Choose Country
-                    </span>
-                  }
-                  style={{
-                    height: "50px",
-                    boxSizing: "border-box",
-                    fontSize: "larger",
-                  }}
-                  options={countryOptions}
-                />
-              </Form.Item>
-              <Form.Item
-                label={
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#000",
-                      lineHeight: "150%",
-                      position: "relative",
-                      top: "5px",
-                      fontFamily: "Noto Sans",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Contact Number
-                  </span>
-                }
-                style={{ marginBottom: "20px" }}
-              >
-                <div style={{ display: "flex" }}>
-                  <Select
-                    style={{
-                      width: "80px",
-                      height: "50px",
-                      marginRight: "5px",
-                    }}
-                    options={phoneOptions}
-                    placeholder={"+"}
-                  />
-                  <Input
-                    placeholder="Contact Number"
-                    style={{
-                      height: "50px",
-                      boxSizing: "border-box",
-                      fontSize: "medium",
-                    }}
-                  />
-                </div>
-              </Form.Item>
-              <Form.Item style={{ marginBottom: "20px" }}>
-                <Switch defaultChecked />
-                <span
-                  style={{
-                    fontSize: "20px",
-                    color: "#000",
-                    lineHeight: "150%",
-                    marginLeft: "20px",
-                    position: "relative",
-                    top: "5px",
-                    fontFamily: "Noto Sans",
-                  }}
-                >
-                  Use this as Whatsapp Number
-                </span>
-              </Form.Item>
-              <Form.Item
-                label={
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#000",
-                      lineHeight: "150%",
-                      position: "relative",
-                      top: "5px",
-                      fontFamily: "Noto Sans",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Email Address
-                  </span>
-                }
-                style={{ marginBottom: "20px" }}
-              >
-                <Input
-                  placeholder="Email "
-                  style={{
-                    height: "50px",
-                    boxSizing: "border-box",
-                    fontSize: "medium",
-                  }}
-                />
-              </Form.Item>
-              <Checkbox
-                style={{
-                  marginRight: "10px",
-                  position: "relative",
-                  top: "3px",
-                }}
-              />{" "}
-              <span
-                style={{
-                  fontSize: "20px",
-                  color: "#000",
-                  lineHeight: "150%",
-                  position: "relative",
-                  top: "5px",
-                  fontFamily: "Noto Sans",
-                  marginBottom: "5px",
-                  marginTop: "30px",
-                }}
-              >
-                I accept the Terms & Conditions
-              </span>
-              <div
-                style={{
-                  margin: "30px auto",
-                  textAlign: "center",
-                  marginTop: "30px",
-                }}
-              >
-                <Button
-                  style={{
-                    width: "100%",
-                    height: "60px",
-                    backgroundColor: "#045690",
-                    fontSize: "20px",
-                    fontFamily: "Noto Sans",
-                    color: "white",
-                    textTransform: "capitalize",
-                    fontWeight: "600",
-                  }}
-                  onClick={() => setSubmitted(true)}
-                >
-                  Submit
-                </Button>
-              </div>
-            </Form>
-            <Modal
-              title=""
-              open={submitted}
-              onOk={() => console.log("h")}
-              onCancel={() => setSubmitted(false)}
-              footer={null}
-              // closeIcon={null}
-              style={{
-                position: "absolute",
-                top: "15%",
-                left: "25%",
-                zIndex: "999999",
-                padding: "30px",
-              }}
-              width={"50vw"}
-            >
-              <div
-                style={{
-                  width: "70%",
-                  marginInline: "auto",
-                }}
-              >
-                <img src={thanks} style={{ width: "100%" }} />
-              </div>
-              <div
-                style={{
-                  color: "#00467F",
-                  fontFamily: "Montserrat",
-                  fontSize: "50px",
-                  textTransform: "uppercase",
-                  fontWeight: "600",
-                  textAlign: "center",
-                }}
-              >
-                Thank You !
-              </div>
-              <div
-                style={{
-                  color: "#00467F",
-                  fontFamily: "Montserrat",
-                  fontSize: "20px",
-                  fontWeight: "500",
-                  width: "95%",
-                  marginInline: "auto",
-                  margin: "25px auto",
-                }}
-              >
-                We have received your Request successfully, Our team will get in
-                touch with you.
-              </div>
-            </Modal>
-          </div>
-        </div>
 
+        <GetInTouch />
         <div className="footer">
           <div>
             © Copyright Westbay Global Private Limited 2024. All Rights
