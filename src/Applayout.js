@@ -15,19 +15,25 @@ const AppLayout = () => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div
-      className="app-container"
-      ref={divRef}
-      // style={{ border: "4px red solid " }}
-    >
-      <main className="app-container-main">
+    <div className="app-container" ref={divRef}>
+      <div
+        className="app-container-main"
+        style={{ margin: "0", boxSizing: "border-box" }}
+      >
         <div className="app-container-right">
           {appState?.isPlayedOnce && <Header />}
-          <main className="app-container-outlet">
+          <div
+            className="app-container-outlet"
+            style={{
+              width: "100%",
+              boxSizing: "border-box",
+              margin: "0 !important",
+            }}
+          >
             <Outlet />
-          </main>
+          </div>
         </div>
-      </main>
+      </div>
       {appState?.isPlayedOnce && (
         <div className="app-icons whats-app">
           <WhatsApp />

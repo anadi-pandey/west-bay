@@ -46,7 +46,7 @@ const FlagsCollection = () => {
   }, [isVisible]);
 
   return (
-    <div ref={divRef}>
+    <div ref={divRef} style={{ position: "relative" }}>
       <div className="flags-container">
         <Flag name="UK" />
         <Flag name="Canada" />

@@ -8,7 +8,6 @@ import React, {
 import "../App.css";
 import ZoomBackground from "../components/ZoomBackground";
 
-import girlImage from "../assets/pretty-smiling-woman-transperent-glasses 1.png";
 import { Button, Checkbox, Form, Input, Modal, Select, Switch } from "antd";
 import question from "../assets/Group 43.png";
 import {
@@ -17,7 +16,6 @@ import {
   RightCircleFilled,
 } from "@ant-design/icons";
 import { AppContext } from "../AppContext";
-import thanks from "./Illustration 2 (1).png";
 import GetInTouch from "../components/GetInTouch";
 
 const GlobalPresence = React.lazy(() => import("../components/GlobalPresence"));
@@ -58,15 +56,6 @@ const Home = () => {
   const [progress, setProgress] = useState(0);
   const [playedOnce, setPlayedOnce] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [submitted, setSubmitted] = useState(false);
-  const countryOptions = [
-    { label: "Australia", value: "AUS" },
-    { label: "Canada", value: "CAN" },
-    { label: "Europe", value: "EUR" },
-    { label: "Europe", value: "EUR" },
-    { label: "United Kindom", value: "UK" },
-    { label: "United States of America", value: "UK" },
-  ];
 
   // Functions:
   const scrollToMiddle = () => {
@@ -166,14 +155,6 @@ const Home = () => {
     };
   }, [isVisible]);
 
-  const phoneOptions = [
-    { value: "+1", label: "+1" },
-    { value: "+44", label: "+44" },
-    { value: "+64", label: "+64" },
-    { value: "+971", label: "+971" },
-    { value: "+61", label: "+64" },
-  ];
-
   useEffect(() => {
     const home = document.getElementById("home-container");
     if (appState?.isPlayedOnce) {
@@ -185,7 +166,10 @@ const Home = () => {
     <>
       {!appState?.isPlayedOnce && <ZoomBackground />}
       {!appState?.isPlayedOnce && (
-        <div ref={divRef} style={{ position: "relative", top: "2px" }}>
+        <div
+          ref={divRef}
+          style={{ position: "relative", top: "2px", maxWidth: "100vw" }}
+        >
           <video
             ref={videoRef}
             src="/videoplay.mp4"
@@ -196,6 +180,7 @@ const Home = () => {
             }}
             autoplay
             muted
+            style={{ width: "100%", height: "100vh" }}
           ></video>
           <div
             style={{
@@ -244,7 +229,12 @@ const Home = () => {
         className="home-container"
         ref={nextDivRef}
         id="home-container"
-        style={{ display: "none", width: "100vw", boxSizing: "border-box" }}
+        style={{
+          display: "none",
+          width: "100%",
+          boxSizing: "border-box",
+          overflowX: "clip",
+        }}
       >
         <Suspense fallback={<div>Loading...</div>}>
           <FlagsCollection />
