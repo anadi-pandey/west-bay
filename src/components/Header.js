@@ -160,14 +160,21 @@ const Header = () => {
         onCancel={handleCancel}
         footer={null}
         closeIcon={null}
+        style={{
+          border: "solid 1px red",
+          position: "absolute",
+          top: "130px",
+        }}
+        width={"100vw"}
       >
-        <div>
+        <div style={{ border: "solid 1px green" }}>
           <Input
             placeholder="Search"
             style={{
               backgroundColor: "transparent !important",
               height: "40px",
               fontSize: "larger",
+              width: "50%",
             }}
             className="search-bar"
           />
@@ -176,7 +183,7 @@ const Header = () => {
       <div className="logo-container" style={{ paddingLeft: "15px" }}>
         <Logo />
       </div>
-      <div className="nav-routes">
+      <div className="nav-routes" style={{ marginLeft: "10%" }}>
         <header>
           <nav>
             <div className="nav-ul">
@@ -254,7 +261,7 @@ const Header = () => {
           <SearchIcon onClick={() => showModal(true)} />
         </div>
         <div>
-          <button className="header-button">Request a Callback</button>
+          <button className="header-button">Request a Call back</button>
         </div>
       </div>
 

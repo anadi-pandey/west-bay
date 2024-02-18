@@ -9,32 +9,36 @@ import { AppContext } from "./AppContext";
 
 // Functions:
 const AppLayout = () => {
-  const { showHeader, updateValue } = useContext(AppContext);
+  const { appState, updateValue } = useContext(AppContext);
   const divRef = useRef();
   const scrollBack = () => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="app-container" ref={divRef}>
+    <div
+      className="app-container"
+      ref={divRef}
+      // style={{ border: "4px red solid " }}
+    >
       <main className="app-container-main">
         <div className="app-container-right">
-          {showHeader && <Header />}
+          {appState?.isPlayedOnce && <Header />}
           <main className="app-container-outlet">
             <Outlet />
           </main>
         </div>
       </main>
-      {showHeader && (
+      {appState?.isPlayedOnce && (
         <div className="app-icons whats-app">
           <WhatsApp />
         </div>
       )}
-      {showHeader && (
+      {appState?.isPlayedOnce && (
         <div className="app-icons scroll-app">
           <Scroll />
         </div>
       )}
-      {showHeader && (
+      {appState?.isBackTopVisible && (
         <div className="app-icons scroll-back" onClick={() => scrollBack()}>
           Back to Top
         </div>

@@ -5,7 +5,7 @@
   position: relative;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 10000;
   background-color: white;
   font-weight: 600;
   width: 100vw;
@@ -91,7 +91,7 @@
   background-position: center;
   background-size: cover;
   height: 1008.32px;
-  position: relative;
+  margin-top: 130px;
 }
 
 .flags-container {
@@ -202,9 +202,10 @@
   letter-spacing: 0em;
   text-align: center;
   color: #505050;
-  width: 60%;
+  width: 70%;
   margin-inline: auto;
-  padding: 150px 150px 0 150px;
+  /* padding: 150px 150px 0 150px; */
+  margin-top: 170px;
 }
 
 .time-sub {
@@ -212,10 +213,11 @@
   text-transform: uppercase;
   font-size: larger;
   font-weight: 700;
-  margin-top: 30px;
+  margin-top: 50px;
+  margin-bottom: 40px;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  font-size: 38px;
+  font-size: 58px;
 }
 
 .time-card-container {
@@ -261,11 +263,12 @@
   border-radius: 4px;
   border: 1px solid #00467f;
   cursor: pointer;
-  color: #004b6a;
+  color: #00467f;
   font-weight: 600;
   margin-top: 140px;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
+  background-color: white;
   font-size: 24px;
 }
 
@@ -278,6 +281,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 200px !important;
 }
 
 .journey-heading {
@@ -294,7 +298,7 @@
 }
 
 .journey-sub {
-  margin: 28px;
+  margin: 28px auto 60px;
   color: #e7e7e7;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
@@ -302,12 +306,13 @@
 
 .journey-steps {
   width: 1220.28px;
-  height: 326.06px;
+  height: 396.06px;
   background-color: #ffffff0d;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .number-in-circle {
@@ -330,7 +335,7 @@
   display: flex;
   justify-content: space-around;
   position: relative;
-  top: -100px;
+  top: -160px;
   color: white;
   font: 500;
 }
@@ -398,7 +403,6 @@
   font-size: 50px;
   font-weight: 700;
   line-height: 100px;
-  letter-spacing: 0.1em;
   text-align: left;
   color: white;
   padding: 50px;
@@ -473,7 +477,7 @@
 .visa-name {
   position: absolute;
   font-family: Noto Sans;
-  font-size: 55px;
+  font-size: 45px;
   font-weight: 700;
   line-height: 29px;
   letter-spacing: 0em;
@@ -482,6 +486,8 @@
   left: 30px;
   color: white;
   text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 .visa-card {
@@ -597,23 +603,7 @@ main {
   background: white;
   box-shadow: 0px -10px 60px rgba(0, 0, 0, 0.25);
 }
-button {
-  border: 3px solid #fff;
-  background: transparent;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 5px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 20px;
-  text-transform: uppercase;
-  transition: all ease-in-out 0.3s;
-}
-button:hover {
-  background: #fff;
-  color: #000;
-  opacity: 0.7;
-}
+
 .zoom {
   overflow: hidden;
   padding-bottom: 50%;
@@ -961,10 +951,6 @@ button:hover {
 }
 .btn-next {
   right: -6rem;
-}
-
-.ant-modal-content {
-  background-color: transparent !important;
 }
 
 .ant-input {

@@ -1,30 +1,15 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "../App.css";
-import rect from "../assets/Rectangle 150.png";
-import Flag from "../components/Flag";
-import OutlineOne from "../icons/HeroOutlineOne";
-import OutlineTwo from "../icons/HeroOutlineTwo";
-import TimeCard from "../components/TimeCard";
-import Circle from "../icons/Circle";
-import onedash from "../assets/Asset_dash1.png";
-import twodash from "../assets/Asset_dash.png";
-import Plan from "../components/Plan";
-import Visa from "../components/Visa";
-import Client from "../components/Client";
 import ZoomBackground from "../components/ZoomBackground";
-import PlayAndPause from "../components/PlayAndPause";
-import ReactPlayer from "react-player";
-import globalPresence from "../assets/mapOriginal.png";
-import gloabContacts from "../Pages/Union (3).png";
-import Contacts from "../components/Contacts";
-import awards from "../assets/partners/Group 41.png";
-import badge from "../assets/partners/Group 42.png";
-import choice from "../assets/partners/Client_Choice_2021_International_winner.png";
-import law from "../assets/partners/Siegel.png";
-import law2 from "../assets/partners/Le_TempsBZ_TAKCH2022.png";
-import iso from "../assets/partners/ISO-27001-Certification.png";
+
 import girlImage from "../assets/pretty-smiling-woman-transperent-glasses 1.png";
-import { Button, Carousel, Checkbox, Form, Input, Select, Switch } from "antd";
+import { Button, Checkbox, Form, Input, Modal, Select, Switch } from "antd";
 import question from "../assets/Group 43.png";
 import {
   PauseCircleFilled,
@@ -32,7 +17,20 @@ import {
   RightCircleFilled,
 } from "@ant-design/icons";
 import { AppContext } from "../AppContext";
-import Slider from "../components/Slider";
+import thanks from "./Illustration 2 (1).png";
+
+const GlobalPresence = React.lazy(() => import("../components/GlobalPresence"));
+const Timeline = React.lazy(() => import("../components/Timeline"));
+const Journey = React.lazy(() => import("../components/Journey"));
+const Planner = React.lazy(() => import("../components/Planner"));
+const VisaCollection = React.lazy(() => import("../components/VisaCollection"));
+const Companies = React.lazy(() => import("../components/Companies"));
+const ClientCollection = React.lazy(() =>
+  import("../components/ClientCollection")
+);
+const FlagsCollection = React.lazy(() =>
+  import("../components/FlagsCollection")
+);
 
 const Home = () => {
   const [scroll, setScroll] = useState(0);
@@ -54,9 +52,22 @@ const Home = () => {
   const nextDivRef = useRef(null);
   const headerRef = useRef();
   const [showVideo, setShowVideo] = useState(false);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-  const { showHeader, updateValue } = useContext(AppContext);
+  const { appState, updateValue } = useContext(AppContext);
+  const videoRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+  const [playedOnce, setPlayedOnce] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
+  const countryOptions = [
+    { label: "Australia", value: "AUS" },
+    { label: "Canada", value: "CAN" },
+    { label: "Europe", value: "EUR" },
+    { label: "Europe", value: "EUR" },
+    { label: "United Kindom", value: "UK" },
+    { label: "United States of America", value: "UK" },
+  ];
 
+  // Functions:
   const scrollToMiddle = () => {
     const divElement = divRef.current;
     const middlePosition = divElement.offsetTop + divElement.offsetHeight / 3;
@@ -66,17 +77,62 @@ const Home = () => {
     });
   };
 
-  const scrollToNextDiv = () => {
-    const divElement = nextDivRef.current;
-    const middlePosition = (divElement.offsetTop + divElement.offsetHeight) / 3;
-    window.scrollTo({
-      top: middlePosition,
-      behavior: "smooth",
+  // Scroll to top functionality:
+  function scrollToTop() {
+    return new Promise((resolve, reject) => {
+      if ("scrollBehavior" in document.documentElement.style) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        setTimeout(() => {
+          resolve();
+        }, 0);
+      } else {
+        window.scrollTo(0, 0);
+        resolve();
+      }
     });
+  }
+
+  const scrollToNextDiv = async () => {
+    const divElement = nextDivRef.current;
+    // Return promise.
+    return scrollToTop();
+  };
+
+  const handleProgress = () => {
+    const currentTime = videoRef.current.currentTime;
+    const duration = videoRef.current.duration;
+    const calculatedProgress = (currentTime / duration) * 100;
+    setProgress(calculatedProgress);
+  };
+
+  const handlePausePlay = async (operation) => {
+    console.log(operation);
+    if (operation === "play") {
+      setIsPlaying(true);
+      videoRef.current.play();
+      videoRef.current.playbackRate = 1.25;
+    }
+    if (operation === "pause") {
+      setIsPlaying(false);
+      videoRef.current.pause();
+    }
+    if (operation === "skip") {
+      setPlayedOnce(true);
+      updateValue(true, "header");
+      const home = document.getElementById("home-container");
+      if (home.style.display === "none") {
+        await scrollToNextDiv();
+        home.style.display = "block"; // or "inline", "inline-block", etc. depending on the element type
+      } else {
+        home.style.display = "none";
+      }
+    }
   };
 
   // Effects:
-
   useEffect(() => {
     const options = {
       root: null,
@@ -109,60 +165,18 @@ const Home = () => {
     };
   }, [isVisible]);
 
-  const videoRef = useRef(null);
-  const [progress, setProgress] = useState(0);
-  const [playedOnce, setPlayedOnce] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const handleProgress = () => {
-    const currentTime = videoRef.current.currentTime;
-    const duration = videoRef.current.duration;
-    const calculatedProgress = (currentTime / duration) * 100;
-    setProgress(calculatedProgress);
-  };
-
-  const handlePausePlay = (operation) => {
-    console.log(operation);
-    if (operation === "play") {
-      setIsPlaying(true);
-      videoRef.current.play();
-      videoRef.current.playbackRate = 1.25;
-    }
-    if (operation === "pause") {
-      setIsPlaying(false);
-      videoRef.current.pause();
-    }
-    if (operation === "skip") {
-      setPlayedOnce(true);
-      updateValue(true);
-      const home = document.getElementById("home-container");
-      if (home.style.display === "none") {
-        home.style.display = "block"; // or "inline", "inline-block", etc. depending on the element type
-      } else {
-        home.style.display = "none";
-      }
-      scrollToNextDiv();
-    }
-  };
-
-  const [mainIndex, setMainIndex] = useState(0);
-
-  const slideNext = () => {
-    if (mainIndex < 2) {
-      setMainIndex(mainIndex + 1);
-    }
-  };
-
-  const slidePrev = () => {
-    if (mainIndex > 0) {
-      setMainIndex(mainIndex - 1);
-    }
-  };
+  const phoneOptions = [
+    { value: "+1", label: "+1" },
+    { value: "+44", label: "+44" },
+    { value: "+64", label: "+64" },
+    { value: "+971", label: "+971" },
+    { value: "+61", label: "+64" },
+  ];
 
   return (
     <>
-      <ZoomBackground />
-      {!playedOnce && (
+      {!appState?.isPlayedOnce && <ZoomBackground />}
+      {!appState?.isPlayedOnce && (
         <div ref={divRef} style={{ position: "relative", top: "2px" }}>
           <video
             ref={videoRef}
@@ -174,7 +188,6 @@ const Home = () => {
             }}
             autoplay
             muted
-            ONm={() => console.log("Dikhao")}
           ></video>
           <div
             style={{
@@ -211,7 +224,7 @@ const Home = () => {
                 marginInline: "50px",
               }}
               onClick={() => {
-                updateValue(true);
+                updateValue(true, "header");
                 handlePausePlay("skip");
               }}
             />
@@ -225,246 +238,16 @@ const Home = () => {
         id="home-container"
         style={{ display: "none" }}
       >
-        <div className="flags-container">
-          <Flag name="UK" />
-          <Flag name="Canada" />
-          <Flag name="US" />
-          <Flag name="NewZealand" />
-          <Flag name="Europe" />
-        </div>
-        <div className="banner">
-          <div className="banner-head">Unlocking Dreams Globally</div>
-          <div className="banner-text">
-            A beacon of excellence in global immigration services
-          </div>
-        </div>
-        <div className="outline-right">
-          <OutlineOne />
-        </div>
-        <div className="outline-left">
-          <OutlineTwo />
-        </div>
-
-        <div className="global_presence">
-          <div className="global-sub">OFFICES AROUND THE WORLD</div>
-          <div className="global-main">OUR GLOBAL PRESENCE</div>
-          <div className="global-text">
-            At Westbay Global, we're strategically positioned to serve you
-            better, with offices in key locations across the globe. Our
-            international network ensures seamless support wherever you are.
-            Explore our office locations and find the closest one to assist you
-            on your journey.
-          </div>
-          <div>
-            <img
-              src={globalPresence}
-              alt="globalpresence"
-              style={{ width: "100%" }}
-            />
-            <div
-              style={{
-                position: "relative",
-                top: "-250px",
-                marginLeft: "100px",
-                boxSizing: "border-box",
-                width: "1250px",
-                height: "770px",
-              }}
-            >
-              <div style={{ position: "absolute", top: "0", left: "0" }}>
-                <img src={gloabContacts} alt="Contacts" />
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "1200px",
-                  marginInline: "auto",
-                  marginLeft: "10px",
-                  marginTop: "50px",
-                  padding: "50px",
-                  boxSizing: "border-box",
-                }}
-              >
-                <Contacts />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="timeline-container">
-          <div className="timeline-head">
-            With 15+ Years of Excellence in Pioneering Immigration Solutions and
-            Transforming Lives Worldwide
-          </div>
-          <div className="time-sub">SERVING YOU SINCE 2009</div>
-
-          <div className="time-card-container">
-            <TimeCard name="Successful Visas" number="2250+" />
-            <TimeCard name="Clients" number="1200+" />
-            <TimeCard name="Universities" number="150+" />
-            <TimeCard name="Countries" number="30+" />
-          </div>
-          <button className="learn-more-btn">Learn More About Us</button>
-        </div>
-
-        <div className="journey" style={{ marginTop: "100px" }}>
-          <div className="journey-heading">
-            Follow 3 Simple Steps Towards Global Residency{" "}
-          </div>
-          <div className="journey-sub" style={{ fontSize: "28px" }}>
-            Your dream destination awaits
-          </div>
-          <div className="journey-steps">
-            <Circle number="1" />
-            <div style={{ position: "relative", top: "-12px" }}>
-              <img src={onedash} />
-            </div>
-            <Circle number="2" />
-            <div>
-              <img src={twodash} />
-            </div>
-            <Circle number="3" />
-          </div>
-          <div className="tile">
-            <div
-              className="tile-item"
-              style={{ position: "relative", left: "-15px" }}
-            >
-              Meet Us
-            </div>
-            <div
-              className="tile-item"
-              style={{ position: "relative", left: "15px" }}
-            >
-              Discuss With Us
-            </div>
-            <div
-              className="tile-item"
-              style={{ position: "relative", left: "20px" }}
-            >
-              Fly Abroad
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="services"
-          style={{
-            marginTop: "60px",
-            paddingBottom: "0",
-          }}
-        >
-          <div className="service-title">OUR SERVICES</div>
-          <div className="services-text">CHOOSE YOUR PLAN/PATH</div>
-
-          <div className="services-sub-text">
-            {" "}
-            Explore Your Options: Uncover Our Services to Find the Right Path
-            for Your Journey.
-          </div>
-          <div className="services-plan-container">
-            <Plan name="invest" />
-            <Plan name="residency" />
-          </div>
-          <div className="services-plan-container">
-            <Plan name={"golden"} />
-            <Plan name="overseas" />
-          </div>
-        </div>
-
-        <div
-          className="visas"
-          style={{
-            marginTop: "50px",
-            paddingTop: "110px",
-            paddingBottom: "90px",
-          }}
-        >
-          <div className="service-title">CLIENT'S PREFERENCE</div>
-          <div className="services-text">BEST PR / VISAS TO EXPLORE</div>
-          <div className="visas-container">
-            <Visa name={"canada"} />
-            <Visa name={"new_zealand"} />
-            <Visa name={"australia"} />
-            <Visa name={"usa"} />
-            <Visa name={"uk"} />
-            <Visa name={"europe"} />
-          </div>
-        </div>
-
-        <div
-          style={{ position: "relative", height: "800px", marginTop: "40px" }}
-        >
-          <div className="service-title">ASSOCIATED COMPANIES</div>
-          <div className="services-text">GLOBAL PARTNERS</div>
-          <img
-            src={badge}
-            alt="bagde"
-            style={{ position: "absolute", right: "0px", top: 0 }}
-          />
-          <div
-            className="carousel-partners"
-            style={{ marginTop: "240px", position: "relative" }}
-          >
-            <img
-              src={awards}
-              alt="award"
-              style={{
-                position: "relative",
-                marginRight: "-40px",
-                top: "-22px",
-              }}
-            />
-            <img
-              src={choice}
-              alt="award"
-              style={{ position: "relative", marginRight: "-40px" }}
-            />
-            <img
-              src={law}
-              alt="award"
-              style={{ position: "relative", marginRight: "-70px" }}
-            />
-            <img
-              src={law2}
-              alt="award"
-              style={{ position: "relative", marginRight: "-20px" }}
-            />
-            <img
-              src={iso}
-              alt="award"
-              style={{ position: "relative", left: "-40px" }}
-            />
-          </div>
-        </div>
-
-        <div className="visas client">
-          <div className="service-title">CLIENT'S STORIES</div>
-          <div className="services-text">DONT TAKE OUR WORD FOR IT</div>
-          <div className="service-title">See what our clients have to say</div>
-          <div
-            style={{
-              display: "flex",
-              marginInline: "auto",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "60px",
-              marginTop: "60px",
-            }}
-          >
-            <div style={{ width: "80%", position: "relative" }}>
-              <Slider mainIndex={mainIndex} />
-              <div className="btn-prev" onClick={slidePrev}>
-                &lang;
-              </div>
-              <div className="btn-next" onClick={slideNext}>
-                &rang;
-              </div>
-            </div>
-          </div>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <FlagsCollection />
+          <GlobalPresence />
+          <Timeline />
+          <Journey />
+          <Planner />
+          <VisaCollection />
+          <Companies />
+          <ClientCollection />
+        </Suspense>
 
         <div
           style={{
@@ -569,6 +352,7 @@ const Home = () => {
                     boxSizing: "border-box",
                     fontSize: "larger",
                   }}
+                  options={countryOptions}
                 />
               </Form.Item>
               <Form.Item
@@ -589,14 +373,25 @@ const Home = () => {
                 }
                 style={{ marginBottom: "20px" }}
               >
-                <Input
-                  placeholder="Contact Number"
-                  style={{
-                    height: "50px",
-                    boxSizing: "border-box",
-                    fontSize: "medium",
-                  }}
-                />
+                <div style={{ display: "flex" }}>
+                  <Select
+                    style={{
+                      width: "80px",
+                      height: "50px",
+                      marginRight: "5px",
+                    }}
+                    options={phoneOptions}
+                    placeholder={"+"}
+                  />
+                  <Input
+                    placeholder="Contact Number"
+                    style={{
+                      height: "50px",
+                      boxSizing: "border-box",
+                      fontSize: "medium",
+                    }}
+                  />
+                </div>
               </Form.Item>
               <Form.Item style={{ marginBottom: "20px" }}>
                 <Switch defaultChecked />
@@ -680,11 +475,63 @@ const Home = () => {
                     textTransform: "capitalize",
                     fontWeight: "600",
                   }}
+                  onClick={() => setSubmitted(true)}
                 >
                   Submit
                 </Button>
               </div>
             </Form>
+            <Modal
+              title=""
+              open={submitted}
+              onOk={() => console.log("h")}
+              onCancel={() => setSubmitted(false)}
+              footer={null}
+              // closeIcon={null}
+              style={{
+                position: "absolute",
+                top: "15%",
+                left: "25%",
+                zIndex: "999999",
+                padding: "30px",
+              }}
+              width={"50vw"}
+            >
+              <div
+                style={{
+                  width: "70%",
+                  marginInline: "auto",
+                }}
+              >
+                <img src={thanks} style={{ width: "100%" }} />
+              </div>
+              <div
+                style={{
+                  color: "#00467F",
+                  fontFamily: "Montserrat",
+                  fontSize: "50px",
+                  textTransform: "uppercase",
+                  fontWeight: "600",
+                  textAlign: "center",
+                }}
+              >
+                Thank You !
+              </div>
+              <div
+                style={{
+                  color: "#00467F",
+                  fontFamily: "Montserrat",
+                  fontSize: "20px",
+                  fontWeight: "500",
+                  width: "95%",
+                  marginInline: "auto",
+                  margin: "25px auto",
+                }}
+              >
+                We have received your Request successfully, Our team will get in
+                touch with you.
+              </div>
+            </Modal>
           </div>
         </div>
 
