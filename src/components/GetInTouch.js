@@ -6,6 +6,7 @@ import { AppContext } from "../AppContext";
 
 const GetInTouch = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [otherCountry, setOtherCountry] = useState(false);
   const countryOptions = [
     {
       label: (
@@ -90,6 +91,20 @@ const GetInTouch = () => {
         </span>
       ),
       value: "USA",
+    },
+    {
+      label: (
+        <span
+          style={{
+            fontFamily: "Noto Sans",
+            fontSize: "larger",
+            fontWeight: "500",
+          }}
+        >
+          Another Country
+        </span>
+      ),
+      value: "AC",
     },
   ];
 
@@ -239,7 +254,7 @@ const GetInTouch = () => {
         </div>
         <div style={{ width: "50%", padding: "80px", boxSizing: "border-box" }}>
           <div className="contact-us-heading">GET IN TOUCH WITH US</div>
-          <Form layout="vertical">
+          <Form layout="vertical" onFinish={() => setSubmitted(true)}>
             <Form.Item
               label={
                 <span
@@ -257,6 +272,8 @@ const GetInTouch = () => {
                 </span>
               }
               style={{ marginBottom: "20px" }}
+              rules={[{ required: true, message: "Please enter your Name!" }]}
+              name="Name"
             >
               <Input
                 placeholder="Enter Name"
@@ -284,25 +301,40 @@ const GetInTouch = () => {
                 </span>
               }
               style={{ marginBottom: "20px" }}
+              name="Country"
+              rules={[{ required: true, message: "Select a country" }]}
             >
-              <Select
-                placeholder={
-                  <span
-                    style={{
-                      fontFamily: "Noto Sans",
-                      fontSize: "larger",
-                    }}
-                  >
-                    Choose Country
-                  </span>
-                }
-                style={{
-                  height: "50px",
-                  boxSizing: "border-box",
-                  fontSize: "larger",
-                }}
-                options={countryOptions}
-              />
+              {!otherCountry && (
+                <Select
+                  placeholder={
+                    <span
+                      style={{
+                        fontFamily: "Noto Sans",
+                        fontSize: "larger",
+                      }}
+                    >
+                      Choose Country
+                    </span>
+                  }
+                  style={{
+                    height: "50px",
+                    boxSizing: "border-box",
+                    fontSize: "larger",
+                  }}
+                  options={countryOptions}
+                  onSelect={(e) => (e === "AC" ? setOtherCountry(true) : null)}
+                />
+              )}
+              {otherCountry && (
+                <Input
+                  placeholder="Enter Country"
+                  style={{
+                    height: "50px",
+                    boxSizing: "border-box",
+                    fontSize: "medium",
+                  }}
+                />
+              )}
             </Form.Item>
             <Form.Item
               label={
@@ -316,11 +348,16 @@ const GetInTouch = () => {
                     fontFamily: "Noto Sans",
                     marginBottom: "5px",
                   }}
+                  rules={[{ required: true, message: "Enter Contact Number" }]}
                 >
                   Contact Number
                 </span>
               }
               style={{ marginBottom: "20px" }}
+              name="Number"
+              rules={[
+                { required: true, message: "Please enter contact number" },
+              ]}
             >
               <div style={{ display: "flex" }}>
                 <Select
@@ -413,21 +450,24 @@ const GetInTouch = () => {
                 marginTop: "30px",
               }}
             >
-              <Button
-                style={{
-                  width: "100%",
-                  height: "60px",
-                  backgroundColor: "#045690",
-                  fontSize: "20px",
-                  fontFamily: "Noto Sans",
-                  color: "white",
-                  textTransform: "capitalize",
-                  fontWeight: "600",
-                }}
-                onClick={() => setSubmitted(true)}
-              >
-                Submit
-              </Button>
+              <Form.Item>
+                <Button
+                  style={{
+                    width: "100%",
+                    height: "60px",
+                    backgroundColor: "#045690",
+                    fontSize: "20px",
+                    fontFamily: "Noto Sans",
+                    color: "white",
+                    textTransform: "capitalize",
+                    fontWeight: "600",
+                  }}
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Submit
+                </Button>
+              </Form.Item>
             </div>
           </Form>
           <Modal

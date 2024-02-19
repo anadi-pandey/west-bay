@@ -333,69 +333,55 @@ const Header = () => {
       <div className="logo-container" style={{ paddingLeft: "15px" }}>
         <Logo />
       </div>
-      <div className="nav-routes" style={{ marginLeft: "18%" }}>
+      <div className="nav-routes" style={{ marginLeft: "22%" }}>
         <header>
-          <nav>
-            <div className="nav-ul">
-              <div
-                className="nav-container"
-                onClick={() => setCurrentPage("home")}
+          <nav className="nav-ul">
+            {/* <div className="nav-ul"> */}
+            <div
+              className="nav-container"
+              onClick={() => setCurrentPage("home")}
+            >
+              <Link
+                to="/"
+                className="nav-link"
+                onClick={() => setServices(false)}
               >
-                <Link
-                  to="/"
-                  className="nav-link"
-                  onClick={() => setServices(false)}
-                >
-                  Home
-                </Link>
-                {currentPage === "home" && <div className="highlighter"></div>}{" "}
-              </div>
-              <div
-                className="nav-container"
-                onClick={() => setCurrentPage("services")}
-              >
-                <div>
-                  <span to="/services" className="nav-link">
-                    Services
-                  </span>
-                  <DownOutlined
-                    style={{ marginInline: "10px", fontSize: "smaller" }}
-                    onClick={() => setServices(!services)}
-                  />
-                </div>
-                {currentPage === "services" && (
-                  <div className="highlighter"></div>
-                )}{" "}
-              </div>
-              <div
-                className="nav-container"
-                onClick={() => setCurrentPage("about")}
-              >
-                <Link
-                  to="/about"
-                  className="nav-link"
-                  onClick={() => setServices(false)}
-                >
-                  About Us
-                </Link>
-                {currentPage === "about" && <div className="highlighter"></div>}{" "}
-              </div>
-              {/* <div
-                className="nav-container"
-                onClick={() => setCurrentPage("contact")}
-              >
-                <Link
-                  to="/contact"
-                  className="nav-link"
-                  onClick={() => setServices(false)}
-                >
-                  Contact Us
-                </Link>
-                {currentPage === "contact" && (
-                  <div className="highlighter"></div>
-                )}{" "}
-              </div> */}
+                Home
+              </Link>
+              {currentPage === "home" && <div className="highlighter"></div>}{" "}
             </div>
+            <div
+              className="nav-container"
+              onClick={() => setCurrentPage("services")}
+              style={{ paddingRight: "5px" }}
+            >
+              <div>
+                <span to="/services" className="nav-link">
+                  Services
+                </span>
+                <DownOutlined
+                  style={{ marginInline: "10px", fontSize: "smaller" }}
+                  onClick={() => setServices(!services)}
+                />
+              </div>
+              {currentPage === "services" && (
+                <div className="highlighter"></div>
+              )}{" "}
+            </div>
+            <div
+              className="nav-container"
+              onClick={() => setCurrentPage("about")}
+            >
+              <Link
+                to="/about"
+                className="nav-link"
+                onClick={() => setServices(false)}
+              >
+                About Us
+              </Link>
+              {currentPage === "about" && <div className="highlighter"></div>}{" "}
+            </div>
+            {/* </div> */}
           </nav>
         </header>
       </div>
@@ -411,7 +397,15 @@ const Header = () => {
           <SearchIcon onClick={() => showModal(true)} />
         </div>
         <div>
-          <button className="header-button">Request a Call back</button>
+          <button
+            className="header-button"
+            onClick={() => {
+              navigate("/contact");
+              setCurrentPage("contact");
+            }}
+          >
+            Request a Call back
+          </button>
         </div>
       </div>
 

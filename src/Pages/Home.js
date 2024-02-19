@@ -180,7 +180,7 @@ const Home = () => {
       {!appState?.isPlayedOnce && (
         <div
           ref={divRef}
-          style={{ position: "relative", top: "2px", maxWidth: "100vw" }}
+          style={{ position: "relative", top: "0px", maxWidth: "100vw" }}
         >
           <video
             ref={videoRef}

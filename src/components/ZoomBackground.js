@@ -42,7 +42,7 @@ const ZoomBackground = () => {
           fontSize: "30px",
           color: "white",
           position: "absolute",
-          top: "65%",
+          top: "65vh",
           left: "30%",
           fontFamily: "Noto Sans",
         }}

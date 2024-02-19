@@ -19,12 +19,12 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  padding-inline: 20px;
 }
 
 .nav-ul {
   display: flex;
   width: 430px;
-  justify-content: space-around;
   text-decoration: none;
   align-items: center;
   position: relative;
@@ -76,7 +76,6 @@
   border: none;
   font-family: Noto Sans;
   font-size: medium;
-  margin-inline: 20px;
   line-height: 150% !important;
   font-weight: 600;
   cursor: pointer;
