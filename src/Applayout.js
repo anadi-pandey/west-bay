@@ -41,18 +41,14 @@ const AppLayout = () => {
         <div className="app-icons whats-app">
           {/* <WhatsApp /> */}
           <FloatingWhatsApp
-            phoneNumber="91-9873197553"
+            phoneNumber="+91-9873 197553"
             message="Hello Oppurtunities!!!"
             accountName={"Westbay Immigration"}
             avatar={whatsapp}
           />
         </div>
       )}
-      {appState?.isDropArrowVisible && appState?.isPlayedOnce && (
-        <div className="app-icons scroll-app">
-          <Scroll />
-        </div>
-      )}
+
       {appState?.isBackTopVisible && (
         <div
           className="app-icons scroll-back"

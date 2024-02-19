@@ -333,7 +333,7 @@ const Header = () => {
       <div className="logo-container" style={{ paddingLeft: "15px" }}>
         <Logo />
       </div>
-      <div className="nav-routes" style={{ marginLeft: "10%" }}>
+      <div className="nav-routes" style={{ marginLeft: "18%" }}>
         <header>
           <nav>
             <div className="nav-ul">
@@ -380,7 +380,7 @@ const Header = () => {
                 </Link>
                 {currentPage === "about" && <div className="highlighter"></div>}{" "}
               </div>
-              <div
+              {/* <div
                 className="nav-container"
                 onClick={() => setCurrentPage("contact")}
               >
@@ -394,12 +394,12 @@ const Header = () => {
                 {currentPage === "contact" && (
                   <div className="highlighter"></div>
                 )}{" "}
-              </div>
+              </div> */}
             </div>
           </nav>
         </header>
       </div>
-      <div className="header-action" style={{ paddingInline: "20px" }}>
+      <div className="header-action" style={{ paddingRight: "30px" }}>
         <div
           style={{
             position: "relative",

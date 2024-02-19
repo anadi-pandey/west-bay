@@ -23,10 +23,12 @@
 
 .nav-ul {
   display: flex;
-  width: 530px;
+  width: 430px;
   justify-content: space-around;
   text-decoration: none;
   align-items: center;
+  position: relative;
+  top: 10px;
 }
 
 .nav-link {
@@ -48,6 +50,7 @@
   position: absolute;
   right: 20px;
   align-items: center;
+  top: 50px;
 }
 
 .header-button {
@@ -955,10 +958,10 @@ main {
   top: 13rem;
 }
 .btn-prev {
-  left: -6rem;
+  left: -9rem;
 }
 .btn-next {
-  right: -6rem;
+  right: -9rem;
 }
 
 .ant-input {
@@ -991,4 +994,14 @@ main {
 .styles-module_whatsappChatBox__MdQ5U {
   position: fixed !important;
   left: 100px !important;
+}
+
+.testimonial-container {
+  text-align: center;
+  background-color: #e7e7e7;
+  border-radius: 10px;
+  background-image: url("./assets/videoback.jpg");
+  background-position: center;
+  background-size: contain;
+  background-blend-mode: soft-light;
 }

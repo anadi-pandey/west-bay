@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Slider from "./Slider";
-import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
+import left from "../assets/leftArrow.png";
+import right from "../assets/rightArrow.png";
 
 const ClientCollection = () => {
   const [mainIndex, setMainIndex] = useState(0);
@@ -41,7 +42,7 @@ const ClientCollection = () => {
           <div style={{ width: "80%", position: "relative" }}>
             <Slider mainIndex={mainIndex} />
 
-            <LeftCircleFilled
+            <img
               className="btn-prev"
               onClick={slidePrev}
               style={{
@@ -49,8 +50,10 @@ const ClientCollection = () => {
                 fontSize: "58px",
                 marginInline: "50px",
               }}
+              src={left}
             />
-            <RightCircleFilled
+            <img
+              src={right}
               style={{
                 color: "rgba(236,236,236,0.9)",
                 fontSize: "58px",

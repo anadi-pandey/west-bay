@@ -21,7 +21,12 @@ const Companies = () => {
         />
         <div
           className="carousel-partners"
-          style={{ marginTop: "240px", position: "relative" }}
+          style={{
+            marginTop: "240px",
+            margin: "240px auto 0 auto",
+            textAlign: "center",
+            paddingLeft: "50px",
+          }}
         >
           <img
             src={awards}

@@ -7,14 +7,9 @@ import React, {
 } from "react";
 import "../App.css";
 import ZoomBackground from "../components/ZoomBackground";
-
-import { Button, Checkbox, Form, Input, Modal, Select, Switch } from "antd";
+import pause from "./Pause.png";
+import play from "./Play.png";
 import question from "../assets/Group 43.png";
-import {
-  PauseCircleFilled,
-  PlayCircleFilled,
-  RightCircleFilled,
-} from "@ant-design/icons";
 import { AppContext } from "../AppContext";
 import GetInTouch from "../components/GetInTouch";
 
@@ -162,6 +157,23 @@ const Home = () => {
     }
   }, [appState]);
 
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/independent?status=true")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Process the data as needed
+        console.log(data); // Just for demonstration, you might want to handle the data differently
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <>
       {!appState?.isPlayedOnce && <ZoomBackground />}
@@ -180,47 +192,68 @@ const Home = () => {
             }}
             autoplay
             muted
-            style={{ width: "100%", height: "100vh" }}
+            style={{ width: "100%", height: "auto" }}
           ></video>
           <div
             style={{
               position: "absolute",
               bottom: "100px",
-              right: "37%",
+              right: "5%",
               textAlign: "center",
             }}
           >
             {!isPlaying && (
-              <PlayCircleFilled
+              <img
+                src={pause}
                 style={{
                   color: "rgba(236,236,236,0.5)",
-                  fontSize: "58px",
                   marginInline: "50px",
+                  position: "relative",
+                  top: "15px",
+                  cursor: "pointer",
                 }}
                 onClick={() => handlePausePlay("play")}
               />
             )}
             {isPlaying && (
-              <PauseCircleFilled
+              <img
                 style={{
                   color: "rgba(236,236,236,0.5)",
-                  fontSize: "58px",
                   marginInline: "50px",
+                  fill: "white",
+                  zIndex: "5",
+                  marginTop: "20px",
+                  position: "relative",
+                  top: "15px",
+                  cursor: "pointer",
                 }}
                 onClick={() => handlePausePlay("pause")}
+                src={play}
               />
             )}
-            <RightCircleFilled
+            <div
               style={{
-                color: "rgba(236,236,236,0.5)",
-                fontSize: "58px",
-                marginInline: "50px",
+                backgroundColor: "rgba(236,236,236,0.5)",
+                fontSize: "24px",
+                marginInline: "10px",
+                color: "white",
+                display: "inline",
+                fontFamily: "Noto Sans",
+                padding: "16px 26px 16px 26px",
+                borderRadius: "50px",
+                textDecoration: "underline",
+                position: "relative",
+                top: "-10px",
+                fontWeight: "500",
+                cursor: "pointer",
               }}
               onClick={() => {
                 updateValue(true, "header");
                 handlePausePlay("skip");
               }}
-            />
+            >
+              Skip Video
+            </div>
           </div>
         </div>
       )}
