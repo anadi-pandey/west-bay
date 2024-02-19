@@ -1005,3 +1005,15 @@ main {
   background-size: contain;
   background-blend-mode: soft-light;
 }
+
+.ant-select-arrow {
+  color: #00467f !important;
+}
+
+.ant-input:hover {
+  border-color: #00467f !important;
+}
+
+.ant-select-selector:hover {
+  border-color: #00467f !important;
+}

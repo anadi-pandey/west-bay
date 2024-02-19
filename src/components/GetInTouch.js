@@ -95,6 +95,20 @@ const GetInTouch = () => {
 
   const phoneOptions = [
     {
+      value: "+91",
+      label: (
+        <span
+          style={{
+            fontFamily: "Noto Sans",
+            fontSize: "larger",
+            fontWeight: "500",
+          }}
+        >
+          +91
+        </span>
+      ),
+    },
+    {
       value: "+1",
       label: (
         <span
@@ -311,7 +325,7 @@ const GetInTouch = () => {
               <div style={{ display: "flex" }}>
                 <Select
                   style={{
-                    width: "80px",
+                    width: "100px",
                     height: "50px",
                     marginRight: "5px",
                   }}
