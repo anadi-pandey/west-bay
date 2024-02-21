@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import WhatsApp from "./icons/WhatsApp";
 import Scroll from "./icons/Scroll";
 import "./App.css";
-import { useContext, useRef } from "react";
+import { useContext, useLayoutEffect, useRef, useState } from "react";
 import { AppContext } from "./AppContext";
 import ReactWhatsapp from "react-whatsapp";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
@@ -17,6 +17,14 @@ const AppLayout = () => {
   const scrollBack = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const [isMobile, setIsMobile] = useState(false);
+  useLayoutEffect(() => {
+    console.log("ViewPort Dimensions", window.innerHeight, window.innerWidth);
+    if (window.innerWidth < 700) {
+      setIsMobile(true);
+    }
+  }, []);
   return (
     <div className="app-container" ref={divRef}>
       <div
@@ -24,7 +32,7 @@ const AppLayout = () => {
         style={{ margin: "0", boxSizing: "border-box" }}
       >
         <div className="app-container-right">
-          {appState?.isPlayedOnce && <Header />}
+          {appState?.isPlayedOnce && <Header isMobile={isMobile} />}
           <div
             className="app-container-outlet"
             style={{

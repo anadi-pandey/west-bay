@@ -61,10 +61,10 @@ const FlagsCollection = () => {
         </div>
       </div>
       <div className="outline-right">
-        <OutlineOne />
+        <OutlineOne isMobile />
       </div>
       <div className="outline-left">
-        <OutlineTwo />
+        <OutlineTwo isMobile />
       </div>
     </div>
   );

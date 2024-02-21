@@ -11,8 +11,9 @@ import {
 import "../App.css";
 import searchIcon from "./SearchIcon.png";
 import closeIcon from "./closeIcon.png";
+import ham from "../assets/hamburgerMenu.png";
 
-const Header = () => {
+const Header = ({ isMobile }) => {
   const [services, setServices] = useState(false);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState("home");
@@ -330,61 +331,70 @@ const Header = () => {
           </div>
         </div>
       )}
-      <div className="logo-container" style={{ paddingLeft: "15px" }}>
-        <Logo />
+      <div
+        className="logo-container"
+        style={
+          !isMobile
+            ? { paddingLeft: "15px" }
+            : { position: "relative", top: "14px" }
+        }
+      >
+        <Logo height={isMobile ? 80 : 103} width={isMobile ? 200 : 417} />
       </div>
-      <div className="nav-routes" style={{ marginLeft: "22%" }}>
-        <header>
-          <nav className="nav-ul">
-            {/* <div className="nav-ul"> */}
-            <div
-              className="nav-container"
-              onClick={() => setCurrentPage("home")}
-            >
-              <Link
-                to="/"
-                className="nav-link"
-                onClick={() => setServices(false)}
+      {!isMobile && (
+        <div className="nav-routes" style={{ marginLeft: "22%" }}>
+          <header>
+            <nav className="nav-ul">
+              {/* <div className="nav-ul"> */}
+              <div
+                className="nav-container"
+                onClick={() => setCurrentPage("home")}
               >
-                Home
-              </Link>
-              {currentPage === "home" && <div className="highlighter"></div>}{" "}
-            </div>
-            <div
-              className="nav-container"
-              onClick={() => setCurrentPage("services")}
-              style={{ paddingRight: "5px" }}
-            >
-              <div>
-                <span to="/services" className="nav-link">
-                  Services
-                </span>
-                <DownOutlined
-                  style={{ marginInline: "10px", fontSize: "smaller" }}
-                  onClick={() => setServices(!services)}
-                />
+                <Link
+                  to="/"
+                  className="nav-link"
+                  onClick={() => setServices(false)}
+                >
+                  Home
+                </Link>
+                {currentPage === "home" && <div className="highlighter"></div>}{" "}
               </div>
-              {currentPage === "services" && (
-                <div className="highlighter"></div>
-              )}{" "}
-            </div>
-            <div
-              className="nav-container"
-              onClick={() => setCurrentPage("about")}
-            >
-              <Link
-                to="/about"
-                className="nav-link"
-                onClick={() => setServices(false)}
+              <div
+                className="nav-container"
+                onClick={() => setCurrentPage("services")}
+                style={{ paddingRight: "5px" }}
               >
-                About Us
-              </Link>
-              {currentPage === "about" && <div className="highlighter"></div>}{" "}
-            </div>
-            {/* </div> */}
-          </nav>
-        </header>
-      </div>
+                <div>
+                  <span to="/services" className="nav-link">
+                    Services
+                  </span>
+                  <DownOutlined
+                    style={{ marginInline: "10px", fontSize: "smaller" }}
+                    onClick={() => setServices(!services)}
+                  />
+                </div>
+                {currentPage === "services" && (
+                  <div className="highlighter"></div>
+                )}{" "}
+              </div>
+              <div
+                className="nav-container"
+                onClick={() => setCurrentPage("about")}
+              >
+                <Link
+                  to="/about"
+                  className="nav-link"
+                  onClick={() => setServices(false)}
+                >
+                  About Us
+                </Link>
+                {currentPage === "about" && <div className="highlighter"></div>}{" "}
+              </div>
+              {/* </div> */}
+            </nav>
+          </header>
+        </div>
+      )}
       <div className="header-action" style={{ paddingRight: "30px" }}>
         <div
           style={{
@@ -396,17 +406,20 @@ const Header = () => {
         >
           <SearchIcon onClick={() => showModal(true)} />
         </div>
-        <div>
-          <button
-            className="header-button"
-            onClick={() => {
-              navigate("/contact");
-              setCurrentPage("contact");
-            }}
-          >
-            Request a Call back
-          </button>
-        </div>
+        {!isMobile && (
+          <div>
+            <button
+              className="header-button"
+              onClick={() => {
+                navigate("/contact");
+                setCurrentPage("contact");
+              }}
+            >
+              Request a Call back
+            </button>
+          </div>
+        )}
+        {isMobile && <img src={ham} />}
       </div>
 
       {services && <ModalContent />}

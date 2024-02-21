@@ -13,6 +13,7 @@ import play from "./Play.png";
 import question from "../assets/Group 43.png";
 import { AppContext } from "../AppContext";
 import GetInTouch from "../components/GetInTouch";
+import { useNavigate } from "react-router-dom";
 
 const GlobalPresence = React.lazy(() => import("../components/GlobalPresence"));
 const Timeline = React.lazy(() => import("../components/Timeline"));
@@ -42,6 +43,7 @@ const Home = () => {
   }, []);
 
   // Functions:
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const divRef = useRef(null);
   const nextDivRef = useRef(null);
@@ -268,7 +270,23 @@ const Home = () => {
       >
         <Suspense fallback={<div>Loading...</div>}>
           <FlagsCollection />
-          <GlobalPresence />
+          <div
+            style={{
+              marginInline: "auto",
+              textAlign: "center",
+              marginBottom: "60px",
+            }}
+          >
+            <button
+              className="header-button"
+              onClick={() => {
+                navigate("/contact");
+              }}
+            >
+              Request a Call back
+            </button>
+          </div>
+          <GlobalPresence isMobile={isMobile} />
           <Timeline />
           <Journey />
           <Planner />
