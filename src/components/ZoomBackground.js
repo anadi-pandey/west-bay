@@ -34,6 +34,7 @@ const ZoomBackground = () => {
       <img
         src={westbay}
         style={{ position: "absolute", top: "40%", left: "32%" }}
+        className="image-zoom"
       />
       <div
         style={{
@@ -46,6 +47,7 @@ const ZoomBackground = () => {
           left: "30%",
           fontFamily: "Noto Sans",
         }}
+        className="serving-text"
       >
         Successfully serving you since 15+ Years
       </div>

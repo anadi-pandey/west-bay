@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useRef,
   useState,
+  useLayoutEffect,
 } from "react";
 import "../App.css";
 import ZoomBackground from "../components/ZoomBackground";
@@ -157,21 +158,12 @@ const Home = () => {
     }
   }, [appState]);
 
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/independent?status=true")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Process the data as needed
-        console.log(data); // Just for demonstration, you might want to handle the data differently
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+  const [isMobile, setIsMobile] = useState(false);
+  useLayoutEffect(() => {
+    console.log("ViewPort Dimensions", window.innerHeight, window.innerWidth);
+    if (window.innerWidth < 700) {
+      setIsMobile(true);
+    }
   }, []);
 
   return (
@@ -181,6 +173,7 @@ const Home = () => {
         <div
           ref={divRef}
           style={{ position: "relative", top: "0px", maxWidth: "100vw" }}
+          className="video-after-zoom"
         >
           <video
             ref={videoRef}
@@ -193,6 +186,7 @@ const Home = () => {
             autoplay
             muted
             style={{ width: "100%", height: "auto" }}
+            className="video-mobile"
           ></video>
           <div
             style={{
@@ -213,6 +207,7 @@ const Home = () => {
                   cursor: "pointer",
                 }}
                 onClick={() => handlePausePlay("play")}
+                className="videoIcon"
               />
             )}
             {isPlaying && (
@@ -229,6 +224,7 @@ const Home = () => {
                 }}
                 onClick={() => handlePausePlay("pause")}
                 src={play}
+                className="videoIcon"
               />
             )}
             <div
@@ -247,6 +243,7 @@ const Home = () => {
                 fontWeight: "500",
                 cursor: "pointer",
               }}
+              className="video-skip"
               onClick={() => {
                 updateValue(true, "header");
                 handlePausePlay("skip");
