@@ -1020,18 +1020,15 @@ main {
 
 @media only screen and (max-width: 800px) {
   .video-after-zoom {
-    border: red solid 1px;
     object-fit: cover;
   }
 
   .home-container {
-    border: red solid 1px;
     height: 800px;
     position: relative;
   }
 
   .zoom {
-    border: solid yellow 3px;
     width: 100%;
     height: 800px !important;
     background-size: 100% 100%;
@@ -1078,7 +1075,6 @@ main {
 
   .logo-container img {
     width: 150px !important;
-    border: solid 2px yellow;
   }
 
   .header-action {
@@ -1139,9 +1135,164 @@ main {
 
   .country-name {
     font-size: 14px;
+    line-height: 100%;
   }
 
   .contact-content {
     font-size: 12px !important;
+  }
+
+  .timeline-container {
+    top: -300px !important;
+    height: 1100px;
+  }
+
+  .timeline-head {
+    font-size: 18px !important;
+    text-transform: uppercase;
+    text-align: left;
+    margin-inline: 20px;
+    width: 90%;
+  }
+
+  .time-sub {
+    font-size: 30px;
+    text-align: left;
+    margin-inline: 20px;
+  }
+
+  .time-card-container {
+    flex-wrap: wrap;
+    padding: 20px !important;
+    margin-inline: 0 !important;
+    width: 85%;
+    justify-content: center;
+  }
+
+  .time-card {
+    margin-inline: 20px;
+    width: 150px !important;
+    height: 200px;
+  }
+
+  .learn-more-btn {
+    margin-top: 10px;
+    height: 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .banner {
+    padding-top: 70px;
+  }
+
+  .banner-head {
+    padding-bottom: 20px;
+  }
+
+  .journey-heading {
+    font-size: 30px;
+  }
+
+  .journey-sub {
+    font-size: 20px !important;
+  }
+
+  .journey-steps {
+    flex-direction: column;
+    height: 1100px !important;
+  }
+
+  .journey {
+    height: 1200px;
+  }
+
+  .tile {
+    flex-direction: column;
+    width: fit-content !important;
+    position: relative;
+  }
+
+  .tile-item {
+    position: absolute !important;
+    color: white;
+  }
+  .services-text {
+    font-size: 30px;
+    margin-inline: 20px;
+  }
+  .service-title {
+    text-align: left !important;
+    margin-inline: 20px !important;
+    font-size: large;
+  }
+  .service-content {
+    text-align: left !important;
+    margin-inline: 20px !important;
+  }
+  .services-text {
+    text-align: left !important;
+    margin-inline: 20px !important;
+    font-size: x-large;
+  }
+  .services-sub-text {
+    text-align: left !important;
+    margin-inline: 20px !important;
+    line-height: 160%;
+  }
+
+  .plan-heading {
+    font-size: 30px;
+    line-height: 70px !important;
+  }
+
+  .plan-container {
+    width: 100%;
+    line-height: 20px !important;
+    height: 800px;
+  }
+
+  .plan-btn {
+    font-size: 18px;
+    height: 50px;
+    margin-inline: auto;
+    z-index: 2000;
+  }
+
+  .plan-sub-heading {
+    font-size: 18px;
+    line-height: 40px;
+  }
+
+  .client {
+    padding: 20px;
+  }
+
+  .service-title {
+    margin-bottom: 20px !important;
+  }
+
+  .services-text {
+    margin-bottom: 20px !important;
+  }
+
+  .btn-prev {
+    left: -6rem;
+  }
+  .btn-next {
+    right: -6rem;
+  }
+  .visa-card {
+    width: 90vw;
+  }
+  .visa-card img {
+    width: 100%;
+    height: 100%;
+  }
+  .visa-name {
+    font-size: x-large;
+  }
+  .visa-more {
+    font-size: medium;
   }
 }

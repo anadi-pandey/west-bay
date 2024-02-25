@@ -4,7 +4,7 @@ import girlImage from "../assets/pretty-smiling-woman-transperent-glasses 1.png"
 import thanks from "../Pages/Illustration 2 (1).png";
 import { AppContext } from "../AppContext";
 
-const GetInTouch = () => {
+const GetInTouch = ({ isMobile }) => {
   const [submitted, setSubmitted] = useState(false);
   const [otherCountry, setOtherCountry] = useState(false);
   const countryOptions = [
@@ -249,24 +249,36 @@ const GetInTouch = () => {
         }}
         ref={divRef}
       >
-        <div className="get-image">
-          <img src={girlImage} />
-        </div>
-        <div style={{ width: "50%", padding: "80px", boxSizing: "border-box" }}>
+        {!isMobile && (
+          <div className="get-image">
+            <img src={girlImage} />
+          </div>
+        )}
+        <div
+          style={
+            !isMobile
+              ? { width: "50%", padding: "80px", boxSizing: "border-box" }
+              : { width: "100%", padding: "20px", boxSizing: "border-box" }
+          }
+        >
           <div className="contact-us-heading">GET IN TOUCH WITH US</div>
           <Form layout="vertical" onFinish={() => setSubmitted(true)}>
             <Form.Item
               label={
                 <span
-                  style={{
-                    fontSize: "20px",
-                    color: "#000",
-                    lineHeight: "150%",
-                    position: "relative",
-                    top: "5px",
-                    fontFamily: "Noto Sans",
-                    marginBottom: "5px",
-                  }}
+                  style={
+                    !isMobile
+                      ? {
+                          fontSize: "20px",
+                          color: "#000",
+                          lineHeight: "150%",
+                          position: "relative",
+                          top: "5px",
+                          fontFamily: "Noto Sans",
+                          marginBottom: "5px",
+                        }
+                      : { fontSize: "15px" }
+                  }
                 >
                   Name
                 </span>
@@ -287,15 +299,19 @@ const GetInTouch = () => {
             <Form.Item
               label={
                 <span
-                  style={{
-                    fontSize: "20px",
-                    color: "#000",
-                    lineHeight: "150%",
-                    position: "relative",
-                    top: "5px",
-                    fontFamily: "Noto Sans",
-                    marginBottom: "5px",
-                  }}
+                  style={
+                    !isMobile
+                      ? {
+                          fontSize: "20px",
+                          color: "#000",
+                          lineHeight: "150%",
+                          position: "relative",
+                          top: "5px",
+                          fontFamily: "Noto Sans",
+                          marginBottom: "5px",
+                        }
+                      : { fontSize: "15px" }
+                  }
                 >
                   Preferred Country
                 </span>
@@ -339,15 +355,27 @@ const GetInTouch = () => {
             <Form.Item
               label={
                 <span
-                  style={{
-                    fontSize: "20px",
-                    color: "#000",
-                    lineHeight: "150%",
-                    position: "relative",
-                    top: "5px",
-                    fontFamily: "Noto Sans",
-                    marginBottom: "5px",
-                  }}
+                  style={
+                    !isMobile
+                      ? {
+                          fontSize: "20px",
+                          color: "#000",
+                          lineHeight: "150%",
+                          position: "relative",
+                          top: "5px",
+                          fontFamily: "Noto Sans",
+                          marginBottom: "5px",
+                        }
+                      : {
+                          fontSize: "15px",
+                          color: "#000",
+                          lineHeight: "150%",
+                          position: "relative",
+                          top: "5px",
+                          fontFamily: "Noto Sans",
+                          marginBottom: "5px",
+                        }
+                  }
                   rules={[{ required: true, message: "Enter Contact Number" }]}
                 >
                   Contact Number
@@ -382,15 +410,28 @@ const GetInTouch = () => {
             <Form.Item style={{ marginBottom: "20px" }}>
               <Switch defaultChecked />
               <span
-                style={{
-                  fontSize: "20px",
-                  color: "#000",
-                  lineHeight: "150%",
-                  marginLeft: "20px",
-                  position: "relative",
-                  top: "5px",
-                  fontFamily: "Noto Sans",
-                }}
+                style={
+                  !isMobile
+                    ? {
+                        fontSize: "20px",
+                        color: "#000",
+                        lineHeight: "150%",
+                        position: "relative",
+                        top: "5px",
+                        fontFamily: "Noto Sans",
+                        marginBottom: "5px",
+                      }
+                    : {
+                        fontSize: "15px",
+                        color: "#000",
+                        lineHeight: "150%",
+                        position: "relative",
+                        top: "5px",
+                        fontFamily: "Noto Sans",
+                        marginBottom: "5px",
+                        paddingLeft: "10px",
+                      }
+                }
               >
                 Use this as Whatsapp Number
               </span>
@@ -398,15 +439,27 @@ const GetInTouch = () => {
             <Form.Item
               label={
                 <span
-                  style={{
-                    fontSize: "20px",
-                    color: "#000",
-                    lineHeight: "150%",
-                    position: "relative",
-                    top: "5px",
-                    fontFamily: "Noto Sans",
-                    marginBottom: "5px",
-                  }}
+                  style={
+                    !isMobile
+                      ? {
+                          fontSize: "20px",
+                          color: "#000",
+                          lineHeight: "150%",
+                          position: "relative",
+                          top: "5px",
+                          fontFamily: "Noto Sans",
+                          marginBottom: "5px",
+                        }
+                      : {
+                          fontSize: "15px",
+                          color: "#000",
+                          lineHeight: "150%",
+                          position: "relative",
+                          top: "5px",
+                          fontFamily: "Noto Sans",
+                          marginBottom: "5px",
+                        }
+                  }
                 >
                   Email Address
                 </span>
@@ -430,16 +483,27 @@ const GetInTouch = () => {
               }}
             />{" "}
             <span
-              style={{
-                fontSize: "20px",
-                color: "#000",
-                lineHeight: "150%",
-                position: "relative",
-                top: "5px",
-                fontFamily: "Noto Sans",
-                marginBottom: "5px",
-                marginTop: "30px",
-              }}
+              style={
+                !isMobile
+                  ? {
+                      fontSize: "20px",
+                      color: "#000",
+                      lineHeight: "150%",
+                      position: "relative",
+                      top: "5px",
+                      fontFamily: "Noto Sans",
+                      marginBottom: "5px",
+                    }
+                  : {
+                      fontSize: "15px",
+                      color: "#000",
+                      lineHeight: "150%",
+                      position: "relative",
+                      top: "5px",
+                      fontFamily: "Noto Sans",
+                      marginBottom: "5px",
+                    }
+              }
             >
               I accept the Terms & Conditions
             </span>

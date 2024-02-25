@@ -163,6 +163,7 @@ const Contacts = ({ isMobile }) => {
           style={{
             display: "flex",
             height: "fit-content",
+            top: "113px",
           }}
         >
           <div className="contact-card">
@@ -177,7 +178,7 @@ const Contacts = ({ isMobile }) => {
           </div>
 
           <div>
-            <Divider type="vertical" style={{ height: "160px" }} />
+            <Divider type="vertical" style={{ height: "120px" }} />
           </div>
 
           <div className="contact-card">
@@ -199,6 +200,7 @@ const Contacts = ({ isMobile }) => {
           style={{
             display: "flex",
             height: "fit-content",
+            top: "270px",
           }}
         >
           {" "}
@@ -212,20 +214,75 @@ const Contacts = ({ isMobile }) => {
               +356 9991 3300
             </div>
           </div>
+          <div>
+            <Divider type="vertical" style={{ height: "120px" }} />
+          </div>
+          <div className="contact-card">
+            <img src={turkey} alt="flag" />
+            <div className="country-name">TURKEY</div>
+            <div className="contact-content">
+              <PhoneFilled
+                style={{ transform: "scaleX(-1)", marginInline: "5px" }}
+              />{" "}
+              +90 (539) 854 6767
+            </div>
+          </div>
         </div>
+      )}
 
-<div>
-<Divider type="vertical" style={{ height: "160px" }} />
-</div>
-<div className="contact-card">
-<img src={turkey} alt="flag" />
-<div className="country-name">TURKEY</div>
-<div className="contact-content">
-  <PhoneFilled
-    style={{ transform: "scaleX(-1)", marginInline: "5px" }}
-  />{" "}
-  +90 (539) 854 6767
-</div>
+      {isMobile && (
+        <>
+          <div
+            className="contact-row-mobile"
+            style={{
+              display: "flex",
+              height: "fit-content",
+              top: "430px",
+            }}
+          >
+            <div className="contact-card">
+              <img src={greece} alt="flag" />
+              <div className="country-name">GREECE</div>
+              <div className="contact-content">
+                <PhoneFilled
+                  style={{ transform: "scaleX(-1)", marginInline: "5px" }}
+                />{" "}
+                +30 694 149 9621
+              </div>
+            </div>
+
+            <div>
+              <Divider type="vertical" style={{ height: "120px" }} />
+            </div>
+            <div className="contact-card">
+              <img src={india} alt="flag" />
+              <div className="country-name">DELHI,INDIA</div>
+              <div className="contact-content">
+                <PhoneFilled
+                  style={{ transform: "scaleX(-1)", marginInline: "5px" }}
+                />
+                +91 9873197533
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              width: "fit-content",
+              marginInline: "auto",
+              margin: "0px auto",
+              color: "#505050",
+              fontFamily: "Noto Sans",
+              fontSize: "14px",
+              position: "absolute",
+              top: "-15px",
+              left: "0px",
+              top: "580px",
+            }}
+          >
+            Visit Us: C 619, Saraswati Vihar, Pitampura, New Delhi{" "}
+          </div>
+        </>
       )}
     </div>
   );

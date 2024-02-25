@@ -269,7 +269,7 @@ const Home = () => {
         }}
       >
         <Suspense fallback={<div>Loading...</div>}>
-          <FlagsCollection />
+          <FlagsCollection isMobile={isMobile} />
           <div
             style={{
               marginInline: "auto",
@@ -287,41 +287,43 @@ const Home = () => {
             </button>
           </div>
           <GlobalPresence isMobile={isMobile} />
-          <Timeline />
-          <Journey />
-          <Planner />
+          <Timeline isMobile={isMobile} />
+          <Journey isMobile={isMobile} />
+          <Planner isMobile={isMobile} />
           <VisaCollection />
-          <Companies />
-          <ClientCollection />
+          <Companies isMobile={isMobile} />
+          <ClientCollection isMobile={isMobile} />
         </Suspense>
 
-        <div
-          style={{
-            width: "630px",
-            marginInline: "auto",
-            display: "flex",
-            textAlign: "center",
-            justifyContent: "space-between",
-            position: "relative",
-            top: "-10px",
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <img src={question} alt="?" />
-          </div>
+        {!isMobile && (
           <div
             style={{
-              fontFamily: "Noto Sans",
-              color: "#000",
-              fontSize: "30px",
+              width: "630px",
+              marginInline: "auto",
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "space-between",
+              position: "relative",
+              top: "-10px",
+              alignItems: "center",
             }}
           >
-            Didn’t find what you were looking for ?
+            <div>
+              <img src={question} alt="?" />
+            </div>
+            <div
+              style={{
+                fontFamily: "Noto Sans",
+                color: "#000",
+                fontSize: "30px",
+              }}
+            >
+              Didn’t find what you were looking for ?
+            </div>
           </div>
-        </div>
+        )}
 
-        <GetInTouch />
+        <GetInTouch isMobile={isMobile} />
         <div className="footer">
           <div>
             © Copyright Westbay Global Private Limited 2024. All Rights

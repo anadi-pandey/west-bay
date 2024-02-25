@@ -71,20 +71,31 @@ const GlobalPresence = ({ isMobile }) => {
           style={{ width: "100%" }}
         />
         <div
-          style={{
-            position: "relative",
-            top: "-160px",
-            marginLeft: "100px",
-            boxSizing: "border-box",
-            width: "1250px",
-            height: "770px",
-          }}
+          style={
+            !isMobile
+              ? {
+                  position: "relative",
+                  top: "-160px",
+                  marginLeft: "100px",
+                  boxSizing: "border-box",
+                  width: "1250px",
+                  height: "770px",
+                }
+              : {
+                  position: "relative",
+                  top: "-160px",
+                  marginLeft: "30px",
+                  boxSizing: "border-box",
+                  width: "1250px",
+                  height: "770px",
+                }
+          }
         >
           <div
             style={
               !isMobile
                 ? { position: "absolute", top: "0", left: "0" }
-                : { position: "absolute", top: "70px", left: "-2%" }
+                : { position: "absolute", top: "70px", left: "-1%" }
             }
           >
             {!isMobile && <img src={gloabContacts} alt="Contacts" />}{" "}

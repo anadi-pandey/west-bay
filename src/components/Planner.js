@@ -1,7 +1,8 @@
 import React from "react";
 import Plan from "./Plan";
+import PlanGallery from "./PlanGallery";
 
-const Planner = () => {
+const Planner = ({ isMobile }) => {
   return (
     <div>
       <div
@@ -21,14 +22,23 @@ const Planner = () => {
           Explore Your Options: Uncover Our Services to Find the Right Path for
           Your Journey.
         </div>
-        <div className="services-plan-container" style={{ marginTop: "45px" }}>
-          <Plan name="invest" />
-          <Plan name="residency" />
-        </div>
-        <div className="services-plan-container">
-          <Plan name={"golden"} />
-          <Plan name="overseas" />
-        </div>
+        {!isMobile && (
+          <div
+            className="services-plan-container"
+            style={{ marginTop: "45px" }}
+          >
+            <Plan name="invest" />
+            <Plan name="residency" />
+          </div>
+        )}
+        {!isMobile && (
+          <div className="services-plan-container">
+            <Plan name={"golden"} />
+            <Plan name="overseas" />
+          </div>
+        )}
+
+        {isMobile && <PlanGallery />}
       </div>
     </div>
   );

@@ -3,8 +3,9 @@ import Flag from "./Flag";
 import OutlineOne from "../icons/HeroOutlineOne";
 import OutlineTwo from "../icons/HeroOutlineTwo";
 import { AppContext } from "../AppContext";
+import Gallery from "./Gallery";
 
-const FlagsCollection = () => {
+const FlagsCollection = ({ isMobile }) => {
   const divRef = useRef(null);
   const { appState, updateValue } = useContext(AppContext);
 
@@ -47,25 +48,32 @@ const FlagsCollection = () => {
 
   return (
     <div ref={divRef} style={{ position: "relative" }}>
-      <div className="flags-container">
-        <Flag name="UK" />
-        <Flag name="Canada" />
-        <Flag name="US" />
-        <Flag name="NewZealand" />
-        <Flag name="Europe" />
-      </div>
+      {!isMobile && (
+        <div className="flags-container">
+          <Flag name="UK" />
+          <Flag name="Canada" />
+          <Flag name="US" />
+          <Flag name="NewZealand" />
+          <Flag name="Europe" />
+        </div>
+      )}
+      {isMobile && <Gallery />}
       <div className="banner">
         <div className="banner-head">Unlocking Dreams Globally</div>
         <div className="banner-text">
           A beacon of excellence in global immigration services
         </div>
       </div>
-      <div className="outline-right">
-        <OutlineOne isMobile />
-      </div>
-      <div className="outline-left">
-        <OutlineTwo isMobile />
-      </div>
+      {!isMobile && (
+        <div className="outline-right">
+          <OutlineOne isMobile />
+        </div>
+      )}
+      {!isMobile && (
+        <div className="outline-left">
+          <OutlineTwo isMobile />
+        </div>
+      )}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import Slider from "./Slider";
 import left from "../assets/leftArrow.png";
 import right from "../assets/rightArrow.png";
 
-const ClientCollection = () => {
+const ClientCollection = ({ isMobile }) => {
   const [mainIndex, setMainIndex] = useState(0);
   const slideNext = () => {
     if (mainIndex < 2) {
@@ -40,7 +40,7 @@ const ClientCollection = () => {
           }}
         >
           <div style={{ width: "80%", position: "relative" }}>
-            <Slider mainIndex={mainIndex} />
+            <Slider mainIndex={mainIndex} isMobile={isMobile} />
 
             <img
               className="btn-prev"
