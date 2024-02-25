@@ -1295,4 +1295,21 @@ main {
   .visa-more {
     font-size: medium;
   }
+
+  .scroll-back {
+    font-size: medium;
+    left: 65vw;
+  }
+
+  .whats-app {
+    left: 0;
+  }
+
+  .styles-module_whatsappButton__tVits {
+    left: 20px !important;
+  }
+
+  .styles-module_whatsappChatBox__MdQ5U {
+    left: 20px !important;
+  }
 }
