@@ -6,7 +6,7 @@ import GetInTouch from "../components/GetInTouch";
 const Contact = () => {
   return (
     <div style={{ paddingTop: "200px" }}>
-      <GetInTouch />
+      <GetInTouch isMobile={true} />
     </div>
   );
 };

@@ -16,10 +16,16 @@ const Companies = ({ isMobile }) => {
             : { position: "relative", height: "400px", marginTop: "80px" }
         }
       >
-        <div className="service-title" style={{ marginBottom: "60px" }}>
+        <div
+          className="service-title associated"
+          style={{
+            marginBottom: "60px",
+            marginLeft: "0",
+          }}
+        >
           ASSOCIATED COMPANIES
         </div>
-        <div className="services-text">GLOBAL PARTNERS</div>
+        <div className="services-text associated">GLOBAL PARTNERS</div>
         <img
           src={badge}
           alt="bagde"
