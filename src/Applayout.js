@@ -1,12 +1,9 @@
 // Components:
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
-import WhatsApp from "./icons/WhatsApp";
-import Scroll from "./icons/Scroll";
 import "./App.css";
 import { useContext, useLayoutEffect, useRef, useState } from "react";
 import { AppContext } from "./AppContext";
-import ReactWhatsapp from "react-whatsapp";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import whatsapp from "./components/Group 56.png";
 
@@ -47,7 +44,6 @@ const AppLayout = () => {
       </div>
       {appState?.isPlayedOnce && (
         <div className="app-icons whats-app">
-          {/* <WhatsApp /> */}
           <FloatingWhatsApp
             phoneNumber="+91-9873 197553"
             message="Hello Oppurtunities!!!"

@@ -53,7 +53,7 @@ const Journey = ({ isMobile }) => {
         {isMobile && (
           <div className="journey-steps">
             <Circle number="1" />
-            <div style={{ position: "relative", top: "-12px" }}>
+            <div style={{ position: "relative" }}>
               <img src={odash} />
             </div>
             <Circle number="2" />
@@ -69,8 +69,10 @@ const Journey = ({ isMobile }) => {
               className="tile-item"
               style={{
                 position: "absolute",
-                left: "40%",
-                top: "40%",
+                left: "37%",
+                top: "42%",
+                width: "fit-content",
+                backgroundColor: "#325C93",
               }}
             >
               Meet Us
@@ -79,15 +81,18 @@ const Journey = ({ isMobile }) => {
               className="tile-item"
               style={{
                 position: "absolute",
-                left: "28%",
+                left: "33%",
                 top: "69%",
+                width: "150px",
+                textAlign: "center",
+                backgroundColor: "#325C93",
               }}
             >
               Discuss With Us
             </div>
             <div
               className="tile-item"
-              style={{ position: "absolute", left: "33%", top: "91%" }}
+              style={{ position: "absolute", left: "33%", top: "92%" }}
             >
               Fly Abroad
             </div>

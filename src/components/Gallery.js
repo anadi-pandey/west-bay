@@ -44,7 +44,7 @@ const Gallery = () => {
           fontSize: "58px",
           position: "absolute",
           top: "230px",
-          left: "5%",
+          left: "2%",
         }}
         src={left}
       />
@@ -55,7 +55,7 @@ const Gallery = () => {
           fontSize: "58px",
           position: "absolute",
           top: "230px",
-          left: "72%",
+          left: "84%",
         }}
         onClick={() => {
           console.log("Next");
@@ -72,11 +72,11 @@ const Gallery = () => {
           width: "100vw",
         }}
       >
-        <div>{data[activeIndex]}</div>
+        <div>{data[activeIndex === 0 ? 4 : activeIndex - 1]}</div>
         <div className="item-container" style={{ marginInline: "20px" }}>
           {data[activeIndex]}
         </div>
-        <div>{data[activeIndex]}</div>
+        <div>{data[activeIndex === 4 ? 0 : activeIndex + 1]}</div>
       </div>
     </div>
   );

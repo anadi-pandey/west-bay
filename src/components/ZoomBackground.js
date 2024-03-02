@@ -8,16 +8,13 @@ const ZoomBackground = () => {
     const handleScroll = () => {
       setScrollPos(window.scrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Empty dependency array ensures that this effect runs only once
+  }, []);
 
-  const zoomLevel = 100 + scrollPos / 15; // Adjust the scrolling speed as needed
+  const zoomLevel = 100 + scrollPos / 15;
 
   return (
     <div
@@ -25,17 +22,22 @@ const ZoomBackground = () => {
       style={{
         backgroundSize: `${zoomLevel}%`,
         backgroundPosition: "center",
-        width: "100%", // Adjust as needed
-        height: "500px", // Adjust as needed
+        width: "100%",
+        height: "500px",
         overflow: "hidden",
         color: "white",
       }}
     >
       <img
         src={westbay}
-        style={{ position: "absolute", top: "40%", left: "32%" }}
+        style={{
+          position: "absolute",
+          top: "35%",
+          left: "31%",
+        }}
         className="image-zoom"
       />
+
       <div
         style={{
           width: "fit-content",
@@ -43,8 +45,8 @@ const ZoomBackground = () => {
           fontSize: "30px",
           color: "white",
           position: "absolute",
-          top: "65vh",
-          left: "30%",
+          top: "68%",
+          left: "29%",
           fontFamily: "Noto Sans",
         }}
         className="serving-text"

@@ -83,7 +83,7 @@ const GlobalPresence = ({ isMobile }) => {
                 }
               : {
                   position: "relative",
-                  top: "-160px",
+                  top: "-170px",
                   marginLeft: "30px",
                   boxSizing: "border-box",
                   width: "1250px",

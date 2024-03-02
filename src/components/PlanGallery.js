@@ -38,7 +38,7 @@ const PlanGallery = () => {
           position: "absolute",
           top: "430px",
           left: "2%",
-          zIndex: 2000,
+          zIndex: 1400,
         }}
         src={left}
       />
@@ -49,7 +49,7 @@ const PlanGallery = () => {
           fontSize: "58px",
           position: "absolute",
           top: "430px",
-          left: "82%",
+          left: "80%",
           zIndex: 2000,
         }}
         onClick={() => {

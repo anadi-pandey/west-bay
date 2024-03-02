@@ -270,22 +270,24 @@ const Home = () => {
       >
         <Suspense fallback={<div>Loading...</div>}>
           <FlagsCollection isMobile={isMobile} />
-          <div
-            style={{
-              marginInline: "auto",
-              textAlign: "center",
-              marginBottom: "60px",
-            }}
-          >
-            <button
-              className="header-button"
-              onClick={() => {
-                navigate("/contact");
+          {isMobile && (
+            <div
+              style={{
+                marginInline: "auto",
+                textAlign: "center",
+                marginBottom: "60px",
               }}
             >
-              Request a Call back
-            </button>
-          </div>
+              <button
+                className="header-button"
+                onClick={() => {
+                  navigate("/contact");
+                }}
+              >
+                Request a Call back
+              </button>
+            </div>
+          )}
           <GlobalPresence isMobile={isMobile} />
           <Timeline isMobile={isMobile} />
           <Journey isMobile={isMobile} />

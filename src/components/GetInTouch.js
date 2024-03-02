@@ -516,16 +516,30 @@ const GetInTouch = ({ isMobile }) => {
             >
               <Form.Item>
                 <Button
-                  style={{
-                    width: "100%",
-                    height: "60px",
-                    backgroundColor: "#045690",
-                    fontSize: "20px",
-                    fontFamily: "Noto Sans",
-                    color: "white",
-                    textTransform: "capitalize",
-                    fontWeight: "600",
-                  }}
+                  style={
+                    !isMobile
+                      ? {
+                          width: "100%",
+                          height: "60px",
+                          backgroundColor: "#045690",
+                          fontSize: "20px",
+                          fontFamily: "Noto Sans",
+                          color: "white",
+                          textTransform: "capitalize",
+                          fontWeight: "600",
+                        }
+                      : {
+                          width: "100%",
+                          height: "40px",
+                          backgroundColor: "#045690",
+                          fontSize: "20px",
+                          fontFamily: "Noto Sans",
+                          color: "white",
+                          textTransform: "capitalize",
+                          fontWeight: "600",
+                          fontSize: "large",
+                        }
+                  }
                   type="primary"
                   htmlType="submit"
                 >

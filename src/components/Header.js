@@ -293,7 +293,13 @@ const Header = ({ isMobile }) => {
             boxSizing: "border-box",
           }}
         >
-          <div style={{ width: "50%", marginInline: "auto", display: "flex" }}>
+          <div
+            style={
+              !isMobile
+                ? { width: "50%", marginInline: "auto", display: "flex" }
+                : { width: "90%", marginInline: "auto", display: "flex" }
+            }
+          >
             <Input
               placeholder="Search"
               style={{
@@ -339,7 +345,7 @@ const Header = ({ isMobile }) => {
             : { position: "relative", top: "14px" }
         }
       >
-        <Logo height={isMobile ? 80 : 103} width={isMobile ? 200 : 417} />
+        <Logo height={isMobile ? 80 : 103} width={isMobile ? 240 : 417} />
       </div>
       {!isMobile && (
         <div className="nav-routes" style={{ marginLeft: "22%" }}>
@@ -419,7 +425,7 @@ const Header = ({ isMobile }) => {
             </button>
           </div>
         )}
-        {isMobile && <img src={ham} />}
+        {isMobile && <img src={ham} style={{ marginRight: "20px" }} />}
       </div>
 
       {services && <ModalContent />}
